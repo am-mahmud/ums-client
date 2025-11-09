@@ -1,22 +1,21 @@
 
 // import { createUserWithEmailAndPassword, sendEmailVerification } from 'firebase/auth';
 import React, { use, useState } from 'react';
-import { Link, Navigate, useNavigate } from 'react-router';
+import { Link,useNavigate } from 'react-router';
 // import { auth } from '../../firebase/firebase.config';
 import { GoEye, GoEyeClosed } from "react-icons/go";
 import { toast } from 'react-toastify';
 
 import { AuthContext } from '../../contexts/AuthContext/AuthContext';
-import { SlSocialGoogle } from "react-icons/sl";
 import { FaGamepad, FaGoogle } from "react-icons/fa";
 import { MdErrorOutline } from "react-icons/md";
-import { IoMdCheckmark } from 'react-icons/io';
+
 
 
 const Register = () => {
   const [show, setShow] = useState(false);
 
-//   const { createUser, logInWithGoogle } = use(AuthContext)
+  const { logInWithGoogle } = use(AuthContext)
 
   const navigate = useNavigate();
 
@@ -45,60 +44,60 @@ const Register = () => {
       });
   }
 
-  const handleRegister = (e) => {
-    e.preventDefault();
+//   const handleRegister = (e) => {
+//     e.preventDefault();
 
-    const email = e.target.email?.value;
-    const password = e.target.password?.value;
-
-
-    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
-
-    if (!passwordRegex.test(password)) {
-      if (password.length < 6) {
-        toast(<div className="flex items-center gap-2">
-          <MdErrorOutline />
-          <span>Password must be at least 6 characters long.
-          </span>
-        </div>
-        );
-      } 
-      else if (!/[A-Z]/.test(password)) {
-        toast(<div className="flex items-center gap-2">
-          <MdErrorOutline />
-          <span>Password must contain at least one uppercase letter.
-          </span>
-        </div>);
-      } 
-      else if (!/[a-z]/.test(password)) {
-        toast(<div className="flex items-center gap-2">
-          <MdErrorOutline />
-          <span>Password must contain at least one lowercase letter.
-          </span>
-        </div>);
-      }
-      return;
-    }
+//     const email = e.target.email?.value;
+//     const password = e.target.password?.value;
 
 
-    createUser(email, password)
-      .then(result => {
-        console.log(result.user);
-        toast(<div className="flex items-center gap-2">
-          <FaGamepad className="text-gray-800" />
-          <span>Welcome to USM!</span>
-        </div>);
-        e.target.reset();
-      })
-      .catch(error => {
-        // console.log(error);
-        toast(<div className="flex items-center gap-2">
-          <MdErrorOutline />
-          <span>Try Again.
-          </span>
-        </div>);
-      });
-  };
+//     const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
+
+//     if (!passwordRegex.test(password)) {
+//       if (password.length < 6) {
+//         toast(<div className="flex items-center gap-2">
+//           <MdErrorOutline />
+//           <span>Password must be at least 6 characters long.
+//           </span>
+//         </div>
+//         );
+//       } 
+//       else if (!/[A-Z]/.test(password)) {
+//         toast(<div className="flex items-center gap-2">
+//           <MdErrorOutline />
+//           <span>Password must contain at least one uppercase letter.
+//           </span>
+//         </div>);
+//       } 
+//       else if (!/[a-z]/.test(password)) {
+//         toast(<div className="flex items-center gap-2">
+//           <MdErrorOutline />
+//           <span>Password must contain at least one lowercase letter.
+//           </span>
+//         </div>);
+//       }
+//       return;
+//     }
+
+
+//     createUser(email, password)
+//       .then(result => {
+//         console.log(result.user);
+//         toast(<div className="flex items-center gap-2">
+//           <FaGamepad className="text-gray-800" />
+//           <span>Welcome to USM!</span>
+//         </div>);
+//         e.target.reset();
+//       })
+//       .catch(error => {
+//         // console.log(error);
+//         toast(<div className="flex items-center gap-2">
+//           <MdErrorOutline />
+//           <span>Try Again.
+//           </span>
+//         </div>);
+//       });
+//   };
 
   return (
 
@@ -115,8 +114,7 @@ const Register = () => {
         >
           <div className="h-8 flex justify-end items-center px-3 bg-[#2A7B9B]" />
 
-          <form
-            onSubmit={handleRegister}
+          <form 
             className="p-6 pt-10 flex flex-col items-center space-y-5"
           >
 

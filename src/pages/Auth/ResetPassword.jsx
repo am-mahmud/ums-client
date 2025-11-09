@@ -5,7 +5,7 @@ import { MdErrorOutline, MdOutlinePassword } from "react-icons/md";
 
 const ResetPassword = () => {
 
-    // const { forgetPassword } = use(AuthContext);
+    const { forgetPassword } = use(AuthContext);
 
     const handleReset = (e) => {
         e.preventDefault();
@@ -36,7 +36,6 @@ const ResetPassword = () => {
     return (
 
         <>
-
 
             <title>Password Reset</title>
 
