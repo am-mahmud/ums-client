@@ -6,26 +6,26 @@ import { RxHamburgerMenu } from 'react-icons/rx';
 
 const Navbar = () => {
 
-    const { user, signOutUser } = use(AuthContext);
+    // const { user, signOutUser } = use(AuthContext);
 
-    const handleSignOut = () => {
-        signOutUser()
-            .then(() => {
+    // const handleSignOut = () => {
+    //     signOutUser()
+    //         .then(() => {
 
-            })
-            .catch(error => {
-                console.log(error);
+    //         })
+    //         .catch(error => {
+    //             console.log(error);
 
-            })
-    }
+    //         })
+    // }
 
     const links = < >
         <div className='flex flex-col md:flex-row gap-4'>
             <ActiveLink to='/'>Home</ActiveLink>
-            <ActiveLink to='/bills'>About</ActiveLink>
+            <ActiveLink to='/bills'>Bills</ActiveLink>
         </div>
 
-        {
+        {/* {
             user && <>
                 <div className='flex flex-col md:flex-row md:ml-4 mt-2 md:mt-0 gap-2 md:gap-4'>
                     <ActiveLink to='/'>Home</ActiveLink>
@@ -34,7 +34,7 @@ const Navbar = () => {
                 </div>
 
             </>
-        }
+        } */}
     </>
     return (
         <div className="navbar bg-[#7cb0c4] shadow-sm text-gray-800 stack-sans ">
@@ -57,7 +57,11 @@ const Navbar = () => {
                 </ul>
             </div>
 
-            {!user ? <Link to='/login'> <button className="btn-primary-ui">Login</button> </Link> : <div className=' flex items-center gap-1'> <Link to="/profile">
+            <div className='navbar-end'>
+                <button className='btn-primary-ui'>Login</button>
+            </div>
+
+            {/* {!user ? <Link to='/login'> <button className="btn-primary-ui">Login</button> </Link> : <div className=' flex items-center gap-1'> <Link to="/profile">
                 <img
                     src={user.photoURL || "https://i.ibb.co.com/chgmm5K6/retro-game-9.jpg"}
                     alt="Profile"
@@ -65,7 +69,7 @@ const Navbar = () => {
                 />
             </Link><Link to='/register'><button onClick={handleSignOut} className="btn-primary-ui">Logout</button></Link>
 
-            </div>}
+            </div>} */}
         </div>
     );
 };
