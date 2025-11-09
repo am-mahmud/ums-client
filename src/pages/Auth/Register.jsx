@@ -16,7 +16,7 @@ import { IoMdCheckmark } from 'react-icons/io';
 const Register = () => {
   const [show, setShow] = useState(false);
 
-  const { createUser, logInWithGoogle } = use(AuthContext)
+//   const { createUser, logInWithGoogle } = use(AuthContext)
 
   const navigate = useNavigate();
 
@@ -85,8 +85,8 @@ const Register = () => {
       .then(result => {
         console.log(result.user);
         toast(<div className="flex items-center gap-2">
-          <FaGamepad className="text-yellow-300" />
-          <span>Welcome to Gamehub, gamer!</span>
+          <FaGamepad className="text-gray-800" />
+          <span>Welcome to USM!</span>
         </div>);
         e.target.reset();
       })
@@ -111,9 +111,9 @@ const Register = () => {
       <div className="flex justify-center items-center min-h-screen p-4">
         <div
           className="w-full max-w-sm rounded-lg shadow-xl overflow-hidden 
-                    bg-[#FFF8E1] border-black border-[3px]"
+                    bg-[#FAF9F6]"
         >
-          <div className="h-8 flex justify-end items-center px-3 bg-[#FFD54F]" />
+          <div className="h-8 flex justify-end items-center px-3 bg-[#2A7B9B]" />
 
           <form
             onSubmit={handleRegister}
@@ -126,7 +126,7 @@ const Register = () => {
                 type="text"
                 placeholder="Name"
                 className="w-full p-3 text-lg font-bold rounded-md outline-none 
-                         border-black border-2 bg-[#FFF8E1] text-[#444]"
+                         border-black border-2 bg-white text-[#444]"
                 required
               />
             </div>
@@ -137,7 +137,7 @@ const Register = () => {
                 type="email"
                 placeholder="Email"
                 className="w-full p-3 text-lg font-bold rounded-md outline-none 
-                         border-black border-2 bg-[#FFF8E1] text-[#444]"
+                         border-black border-2 bg-white text-[#444]"
                 required
               />
             </div>
@@ -148,7 +148,7 @@ const Register = () => {
                 type={show ? "text" : "password"}
                 placeholder="Password"
                 className="w-full p-3 text-lg font-bold rounded-md outline-none 
-                         border-black border-2 bg-[#FFF8E1] text-[#444]"
+                         border-black border-2 bg-white text-[#444]"
                 required
               />
               <span
@@ -163,11 +163,10 @@ const Register = () => {
 
 
 
-            <button onClick={handleGoogleLogIn}
+            <button onClick={handleGoogleLogIn} 
               type="submit"
               className=" mt-4 py-2 px-6 text-base md:text-xl font-bold rounded-md cursor-pointer
-                        bg-[#FFC107] border-[#FFD54F] border-2 text-[#444]
-                        transition duration-150 hover:opacity-80 flex items-center gap-2 md:gap-4"
+                        btn-primary-ui flex items-center gap-2 md:gap-4"
             ><span><FaGoogle /></span>
               Proceed With Google
             </button>
@@ -177,10 +176,9 @@ const Register = () => {
             <button
               type="submit"
               className="w-48 mt-6 py-2 px-6 text-base md:text-xl font-bold rounded-md cursor-pointer
-                       bg-[#FFC107] border-[#FFD54F] border-2 text-[#444]
-                       transition duration-150 hover:opacity-80"
+                       btn-primary-ui"
             >
-              Get In
+              Signup
             </button>
 
 

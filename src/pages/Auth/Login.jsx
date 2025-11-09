@@ -98,7 +98,7 @@ const Login = () => {
                                 type="email"
                                 placeholder="Email"
                                 className="w-full p-3 text-lg font-bold rounded-md outline-none 
-                                       border-black border-2 bg-[#FFF8E1] text-[#444]"
+                                       border-black border-2 bg-white text-[#444]"
                                 required
                             />
                         </div>
@@ -109,7 +109,7 @@ const Login = () => {
                                 type={show ? "text" : "password"}
                                 placeholder="xxxxxx"
                                 className="w-full p-3 text-lg font-bold rounded-md outline-none 
-                                       border-black border-2 bg-[#FFF8E1] text-[#444]"
+                                       border-black border-2 bg-white text-[#444]"
                                 required
                             />
                             <span
