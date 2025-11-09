@@ -2,6 +2,7 @@ import React, { use } from 'react';
 import { AuthContext } from '../../contexts/AuthContext/AuthContext';
 import ActiveLink from '../ActiveLink/ActiveLink';
 import { RxHamburgerMenu } from 'react-icons/rx';
+import { Link } from 'react-router';
 
 
 const Navbar = () => {
@@ -58,7 +59,7 @@ const Navbar = () => {
             </div>
 
             <div className='navbar-end'>
-                <button className='btn-primary-ui'>Login</button>
+               <Link to='/login'><button className='btn-primary-ui'>Login</button></Link> 
             </div>
 
             {/* {!user ? <Link to='/login'> <button className="btn-primary-ui">Login</button> </Link> : <div className=' flex items-center gap-1'> <Link to="/profile">

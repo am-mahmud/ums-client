@@ -18,9 +18,7 @@ import { FaGoogle } from "react-icons/fa";
 
 const Login = () => {
 
-    // const [user, setUser] = useState({});
-
-    const { logInUser, logInWithGoogle} = use(AuthContext);
+    //const {logInUser, logInWithGoogle} = use(AuthContext);
 
     const [show, setShow] = useState(false);
 
@@ -42,8 +40,8 @@ const Login = () => {
                 console.log(result.user);
                 e.target.reset();
                 toast(<div className="flex items-center gap-2">
-                    <FaGamepad className="text-yellow-300" />
-                    <span>Welcome back, gamer!</span>
+                    <FaGamepad className="text-gray-800" />
+                    <span>Welcome to USM!</span>
                 </div>
                 );
                 navigate(location.state || '/');
@@ -63,7 +61,7 @@ const Login = () => {
         logInWithGoogle()
             .then(() => {
                 toast(<div className="flex items-center gap-2">
-                    <FaGamepad className="text-yellow-300" />
+                    <FaGamepad className="text-gray-800" />
                     <span>Logged in with Google successfully!</span>
                 </div>);
                 navigate('/');
@@ -89,9 +87,9 @@ const Login = () => {
 
                 <div
                     className="w-full max-w-sm rounded-lg shadow-xl overflow-hidden 
-                    bg-[#FFF8E1] border-black border-[3px]"
+                    bg-[#FAF9F6]"
                 >
-                    <div className="h-8 flex justify-end items-center px-3 bg-[#FFD54F]" />
+                    <div className="h-8 flex justify-end items-center px-3 bg-[#2A7B9B]" />
 
                     <form onSubmit={handleLogin} className="p-6 pt-10 flex flex-col items-center space-y-5">
                         <div className="w-full">
@@ -129,8 +127,7 @@ const Login = () => {
                         <button onClick={handleGoogleLogIn}
                             type="submit"
                             className=" mt-4 py-2 px-6 text-base md:text-xl font-bold rounded-md cursor-pointer
-                                   bg-[#FFC107] border-[#FFD54F] border-2 text-[#444]
-                                   transition duration-150 hover:opacity-80 flex items-center gap-2 md:gap-4"
+                                   btn-primary-ui flex items-center gap-2 md:gap-4"
                         ><span><FaGoogle /></span>
                             Login With Google
                         </button>
@@ -144,8 +141,7 @@ const Login = () => {
 
                         <button
                             type="submit"
-                            className="w-36 mt-4 py-2 px-6 text-base md:text-xl font-bold rounded-md cursor-pointer
-                                   bg-[#FFC107] border-[#FFD54F] border-2 text-[#444]
+                            className="w-36 mt-4 py-2 px-6 text-base md:text-xl font-bold btn-secondary-ui
                                    transition duration-150 hover:opacity-80"
                         >
                             Enter
