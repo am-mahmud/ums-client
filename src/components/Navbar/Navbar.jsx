@@ -1,6 +1,39 @@
 import React from 'react';
+import { AuthContext } from '../../contexts/AuthContext/AuthContext';
+import ActiveLink from '../ActiveLink/ActiveLink';
 
 const Navbar = () => {
+
+    const { user, signOutUser } = use(AuthContext);
+
+    const handleSignOut = () => {
+        signOutUser()
+            .then(() => {
+
+            })
+            .catch(error => {
+                console.log(error);
+
+            })
+    }
+
+    const links = < >
+        <div className='flex flex-col md:flex-row gap-4'>
+            <ActiveLink to='/'>Home</ActiveLink>
+            <ActiveLink to='/bills'>About</ActiveLink>
+        </div>
+
+        {
+            user && <>
+                <div className='flex flex-col md:flex-row md:ml-4 mt-2 md:mt-0 gap-2 md:gap-4'>
+                    <ActiveLink to='/'>Home</ActiveLink>
+                    <ActiveLink to='/bills'>About</ActiveLink>
+
+                </div>
+
+            </>
+        }
+    </>
     return (
         <div className="navbar bg-[#7cb0c4] shadow-sm text-gray-800 stack-sans ">
             <div className="navbar-start">
