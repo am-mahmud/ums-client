@@ -15,7 +15,7 @@ const ResetPassword = () => {
             .then(() => {
                 toast.info(
                     <div className="flex items-center gap-2">
-                        <MdOutlinePassword className="text-black" />
+                        <MdOutlinePassword className="text-gray-800" />
                         <span>Password reset link sent!</span>
                     </div>
                 );

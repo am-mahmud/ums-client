@@ -58,8 +58,14 @@ const Navbar = () => {
                 </ul>
             </div>
 
-            <div className='navbar-end'>
-               <Link to='/login'><button className='btn-primary-ui'>Login</button></Link> 
+            <div className='navbar-end flex gap-2 '>
+                <div>
+                    <Link to='/login'><button className='btn-primary-ui'>Login</button></Link>
+                </div>
+
+                <div>
+                    <Link to='/register'><button className='btn-primary-ui'>Register</button></Link>
+                </div>
             </div>
 
             {/* {!user ? <Link to='/login'> <button className="btn-primary-ui">Login</button> </Link> : <div className=' flex items-center gap-1'> <Link to="/profile">
