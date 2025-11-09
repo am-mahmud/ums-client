@@ -3,6 +3,10 @@ import Banner from '../../components/Banner/Banner';
 import CategoryCard from '../../components/CategoryCard/CategoryCard';
 import Marquee from 'react-fast-marquee';
 import BillCard from '../../components/BillCard/BillCard';
+import SummarySection from '../../components/SummarySection/SummarySection';
+import { AiFillThunderbolt } from 'react-icons/ai';
+import { IoWater } from 'react-icons/io5';
+import { HiLightBulb } from 'react-icons/hi';
 
 const Home = () => {
 
@@ -11,7 +15,7 @@ const Home = () => {
     return (
         <div>
             <Banner></Banner>
-            <Marquee
+            {/* <Marquee
                 speed={60}
                 className="bg-gray-800 p-4 mb-6"
             >
@@ -21,30 +25,24 @@ const Home = () => {
                         and stay on top of your payments seamlessly!
                     </p>
                 </div>
-            </Marquee>
+            </Marquee> */}
             <h1 className="mt-5 mb-5 text-3xl font-bold text-gray-800 text-center">Categories</h1>
             <CategoryCard></CategoryCard>
             <h1 className="mt-5 mb-5 text-3xl font-bold text-gray-800 text-center">Recent Bills</h1>
 
             <BillCard></BillCard>
 
-            <div className="p-10 bg-gray-100 rounded-lg my-6">
-                <h2 className="text-2xl font-bold mb-4 text-center">Payment Summary</h2>
-                <div className="flex flex-col md:flex-row justify-around items-center gap-6">
-                    <div className="bg-white p-6 rounded-lg shadow w-48 text-center">
-                        <h3 className="text-lg font-semibold">Total Paid</h3>
-                        <p className="text-2xl font-bold text-green-600">৳12,450</p>
-                    </div>
-                    <div className="bg-white p-6 rounded-lg shadow w-48 text-center">
-                        <h3 className="text-lg font-semibold">Pending Bills</h3>
-                        <p className="text-2xl font-bold text-red-600">3</p>
-                    </div>
-                    <div className="bg-white p-6 rounded-lg shadow w-48 text-center">
-                        <h3 className="text-lg font-semibold">Total Bills</h3>
-                        <p className="text-2xl font-bold text-blue-600">9</p>
-                    </div>
-                </div>
-            </div>
+            <SummarySection></SummarySection>
+
+            <Marquee className="bg-[#EDDD53] p-4" gradient={false} speed={60}>
+                <p className="text-gray-800 font-bold text-lg flex flex-row items-center gap-1">
+                    Notice :
+                    <AiFillThunderbolt /> Scheduled Power Outage: Mirpur-10, 5 PM - 8 PM |
+                    <IoWater /> Water Supply Maintenance: Uttara Sector 5, 10 AM - 2 PM |
+                    <HiLightBulb /> Tip: Pay bills online to avoid late fees!
+                </p>
+            </Marquee>
+
 
 
         </div>
