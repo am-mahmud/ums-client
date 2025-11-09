@@ -1,14 +1,24 @@
 /* Google Font */
 @import url('https://fonts.googleapis.com/css2?family=Stack+Sans+Headline:wght@200..700&display=swap');
 
+/* Tailwind & DaisyUI setup */
 @import "tailwindcss";
 @plugin "daisyui";
 
-
-
-
+/* Custom Font Class */
 .stack-sans {
   font-family: "Stack Sans Headline", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
+}
+
+/* Custom Components Layer */
+@layer components {
+  .btn-primary-ui {
+    @apply bg-gray-900 text-white px-6 py-3 rounded-2xl font-semibold hover:bg-gray-800 transition;
+  }
+
+  .btn-secondary-ui {
+    @apply bg-white/80 text-gray-900 px-6 py-3 rounded-2xl font-semibold border border-gray-300 hover:bg-gray-100 transition backdrop-blur-sm;
+  }
 }

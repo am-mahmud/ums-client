@@ -2,7 +2,7 @@ import React from 'react';
 
 const Banner = () => {
     return (
-       <section className="pt-28 pb-20 bg-gradient-to-br from-[#2A7B9B]/70 via-[#57C785]/60 to-[#EDDD53]/70 text-center relative overflow-hidden stack-sans">
+       <section className="pt-28 pb-20 bg-linear-to-br from-[#2A7B9B]/70 via-[#57C785]/60 to-[#EDDD53]/70 text-center relative overflow-hidden stack-sans">
       <div className="absolute inset-0 bg-white/30 mix-blend-overlay"></div>
 
 
@@ -41,10 +41,10 @@ const Banner = () => {
         </p>
 
         <div className="mt-8 flex justify-center gap-4">
-          <button className="bg-gray-900 text-white px-6 py-3 rounded-full font-semibold hover:bg-gray-800 transition">
+          <button className="btn-primary-ui">
             Get Started
           </button>
-          <button className="bg-white/80 text-gray-900 px-6 py-3 rounded-full font-semibold border border-gray-300 hover:bg-gray-100 transition backdrop-blur-sm">
+          <button className="btn-secondary-ui">
             Learn More
           </button>
         </div>
