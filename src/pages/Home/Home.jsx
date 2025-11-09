@@ -2,6 +2,7 @@ import React from 'react';
 import Banner from '../../components/Banner/Banner';
 import CategoryCard from '../../components/CategoryCard/CategoryCard';
 import Marquee from 'react-fast-marquee';
+import BillCard from '../../components/BillCard/BillCard';
 
 const Home = () => {
 
@@ -21,9 +22,10 @@ const Home = () => {
                     </p>
                 </div>
             </Marquee>
-            <h1 className="mt-10 mb-5 text-3xl font-bold text-gray-800 text-center">Categories</h1>
+            <h1 className="mt-5 mb-5 text-3xl font-bold text-gray-800 text-center">Categories</h1>
             <CategoryCard></CategoryCard>
-
+            <h1 className="mt-5 mb-5 text-3xl font-bold text-gray-800 text-center">Recent Bills</h1>
+            <BillCard></BillCard>
 
         </div>
     );
