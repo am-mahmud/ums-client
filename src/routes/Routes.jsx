@@ -5,12 +5,14 @@ import Bills from "../pages/Bills/Bills";
 import Register from "../pages/Auth/Register";
 import Login from "../pages/Auth/Login";
 import ResetPassword from "../pages/Auth/ResetPassword";
+import ErrorPage from "../pages/Error/ErrorPage";
 
 
 const router = createBrowserRouter([
   {
     path: "/",
     Component: MainLayout,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         index: true,
