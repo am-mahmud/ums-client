@@ -81,7 +81,7 @@ const Login = () => {
         <>
 
 
-            <title>Login - GameHub</title>
+            <title>Login</title>
 
             <div className="flex justify-center items-center min-h-screen p-4 space-mono">
 

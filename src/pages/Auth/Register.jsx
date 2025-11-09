@@ -105,7 +105,7 @@ const Register = () => {
     <>
 
 
-      <title>Register - GameHub</title>
+      <title>Register Account</title>
 
 
       <div className="flex justify-center items-center min-h-screen p-4">
