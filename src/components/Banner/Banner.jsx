@@ -5,7 +5,7 @@ import userWomanImg from '../../assets/woman.png'
 
 const Banner = () => {
     return (
-       <section className="pt-28 pb-20 bg-linear-to-br from-[#2A7B9B]/70 via-[#57C785]/60 to-[#EDDD53]/70 text-center relative overflow-hidden stack-sans">
+       <section className="pt-28 pb-20 bg-linear-to-br from-[#2A7B9B]/60 via-[#57C785]/40 to-[#EDDD53]/20 text-center relative overflow-hidden stack-sans">
       <div className="absolute inset-0 bg-white/30 mix-blend-overlay"></div>
 
 

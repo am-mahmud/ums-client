@@ -4,7 +4,6 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
-
 .stack-sans {
   font-family: "Stack Sans Headline", sans-serif;
   font-optical-sizing: auto;

@@ -71,7 +71,7 @@ const MyBills = () => {
   const totalAmount = myBills.reduce((sum, b) => sum + b.amount, 0);
 
   return (
-    <div className="max-w-6xl mx-auto py-10 px-4">
+    <div className="max-w-6xl mx-auto py-10 px-4 min-h-screen">
       <h1 className="text-3xl font-bold mb-4 text-gray-900 dark:text-gray-100">
         My Paid Bills
       </h1>

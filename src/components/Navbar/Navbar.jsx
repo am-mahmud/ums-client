@@ -54,7 +54,7 @@ const Navbar = () => {
                 <a className="text-xl px-1 py-1 font-bold">USM</a>
             </div>
             <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal px-1">
+                <ul className="menu menu-horizontal text-lg px-1">
                     {links}
                 </ul>
             </div>
