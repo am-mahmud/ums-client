@@ -9,6 +9,7 @@ import BillDetails from "../pages/Bills/BillDetails";
 import MyBills from "../pages/MyBills/MyBills";
 import AddBill from "../pages/AddBill/AddBill";
 import PrivetRoutes from "./PrivetRoutes";
+import About from "../pages/About/About";
 
 
 const router = createBrowserRouter([
@@ -60,6 +61,10 @@ const router = createBrowserRouter([
           <AddBill></AddBill>
         </PrivetRoutes>
 
+      },
+      {
+        path:'/about',
+        element: <About></About>
       }
     ]
   },
