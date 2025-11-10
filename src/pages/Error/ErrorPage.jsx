@@ -1,19 +1,22 @@
-import React from 'react';
-import { Link } from 'react-router';
+import React from "react";
+import { Link } from "react-router";
+import { motion } from "framer-motion";
+import { FaExclamationTriangle } from "react-icons/fa";
+import Navbar from "../../components/Navbar/Navbar";
+import NotFound from "../../components/NotFound/NotFound";
+import Footer from "../../components/Footer/Footer";
+
 
 const ErrorPage = () => {
-    return (
-        <div className="h-screen flex flex-col items-center justify-center">
-            <h1 className="text-7xl font-bold">404</h1>
-            <p className="text-xl mt-4">Page Not Found</p>
+  return (
+    <>
 
-            <Link to="/">
-                <button className="mt-6 btn-primary-ui text-white px-6 py-3 rounded">
-                    Go Home
-                </button>
-            </Link>
-        </div>
-    );
+    <Navbar></Navbar>
+    <NotFound></NotFound>
+    <Footer></Footer>
+    
+    </>
+  );
 };
 
 export default ErrorPage;
