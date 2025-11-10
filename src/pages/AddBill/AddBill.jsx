@@ -32,9 +32,12 @@ const AddBill = () => {
             .then((res) => res.json())
             .then((data) => {
                 console.log("Bill Added:", data);
-                alert("Bill Added Successfully!");
+                // alert("Bill Added Successfully!");
                 setLoading(false);
+                setAdded(true);
                 form.reset();
+
+                setTimeout(() => setAdded(false), 1500);
             })
             .catch((err) => {
                 console.error(err);
@@ -90,7 +93,6 @@ const AddBill = () => {
                 <textarea
                     name="description"
                     placeholder="Description"
-                    required
                     className="w-full p-3 border rounded"
                 ></textarea>
 
@@ -103,6 +105,7 @@ const AddBill = () => {
                 <div className='col-span-1 md:col-span-2'>
                     <button
                         type="submit"
+                        disabled={loading}
                         className="w-full btn-primary-ui text-white p-3 rounded"
                     >
                        {added ? "Added" : loading ? "Adding..." : "Add Bill"}
