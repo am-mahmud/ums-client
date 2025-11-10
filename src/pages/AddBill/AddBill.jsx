@@ -1,100 +1,118 @@
 import React, { useState } from 'react';
 
 const AddBill = () => {
+  const [loading, setLoading] = useState(false);
+  const [added, setAdded] = useState(false);
 
-    const [loading, setLoading] = useState(false);
-    const [added, setAdded] = useState(false);
+  const handleAddBill = (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setAdded(false);
 
-    const handleAddBill = (e) => {
-        e.preventDefault();
-        setLoading(true);
-        setAdded(false);
+    const form = e.target;
 
-        console.log('add bill pressed');
-
-
-        const form = e.target;
-
-        const newBill = {
-            title: form.title.value,
-            category: form.category.value,
-            amount: Number(form.amount.value),
-            location: form.location.value,
-            description: form.description.value,
-            date: form.date.value,
-            image: form.image.value || "",
-        };
-
-        fetch("http://localhost:3000/bills", {
-            method: "POST",
-            headers: { "content-type": "application/json" },
-            body: JSON.stringify(newBill),
-        })
-            .then((res) => res.json())
-            .then((data) => {
-                console.log("Bill Added:", data);
-                // alert("Bill Added Successfully!");
-                setLoading(false);
-                setAdded(true);
-                form.reset();
-
-                setTimeout(() => setAdded(false), 1500);
-            })
-            .catch((err) => {
-                console.error(err);
-                setLoading(false);
-            });
-
-
+    const newBill = {
+      billsId: form.billsId.value,       
+      username: form.username.value,     
+      phone: form.phone.value,           
+      address: form.address.value,      
+      email: form.email.value,           
+      amount: Number(form.amount.value), 
+      date: form.date.value,             
     };
 
-    return (
-        <div className="max-w-xl mx-auto py-10 text-center">
-            <h1 className="text-3xl font-bold">Add New Bill</h1>
+    fetch("http://localhost:3000/my-bills", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(newBill),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("Bill Added:", data);
+        setLoading(false);
+        setAdded(true);
+        form.reset();
 
-            <form onSubmit={handleAddBill} className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
+        setTimeout(() => setAdded(false), 1500);
+      })
+      .catch((err) => {
+        console.error(err);
+        setLoading(false);
+      });
+  };
 
-                <input
-                    type="text"
-                    name="title"
-                    placeholder="Bill Title"
-                    required
-                    className="w-full p-3 border rounded"
-                />
+  return (
+    <div className="max-w-xl mx-auto py-10 text-center">
+      <h1 className="text-3xl font-bold">Add New Bill</h1>
 
+      <form onSubmit={handleAddBill} className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
 
-                <select
-                    name="category"
-                    required
-                    className="w-full p-3 border rounded"
-                >
-                    <option value="">Select Category</option>
-                    <option value="Electricity">Electricity</option>
-                    <option value="Gas">Gas</option>
-                    <option value="Water">Water</option>
-                    <option value="Internet">Internet</option>
-                </select>
+        <input
+          type="text"
+          name="billsId"
+          placeholder="Bill ID (e.g. abc123)"
+          required
+          className="w-full p-3 border rounded"
+        />
 
-                <input name="amount" type="number" placeholder="Amount" required className="p-3 border rounded" />
+        <input
+          type="text"
+          name="username"
+          placeholder="Username"
+          required
+          className="w-full p-3 border rounded"
+        />
 
-                <input name="location" type="text" placeholder="Location" required className="p-3 border rounded" />
+        <input
+          type="tel"
+          name="phone"
+          placeholder="Phone Number"
+          required
+          className="w-full p-3 border rounded"
+        />
 
-                <input name="image" type="text" placeholder="Image URL (optional)" className="p-3 border rounded md:col-span-2" />
+        <input
+          type="email"
+          name="email"
+          placeholder="Email"
+          required
+          className="w-full p-3 border rounded"
+        />
 
-                <textarea name="description" placeholder="Description" className="p-3 border rounded md:col-span-2"></textarea>
+        <input
+          type="text"
+          name="address"
+          placeholder="Address"
+          required
+          className="w-full p-3 border rounded md:col-span-2"
+        />
 
-                <input name="date" type="date" required className="p-3 border rounded md:col-span-2" />
+        <input
+          name="amount"
+          type="number"
+          placeholder="Amount"
+          required
+          className="p-3 border rounded md:col-span-2"
+        />
 
-                <div className="md:col-span-2">
-                    <button className="btn-primary-ui w-full p-3 text-white rounded" disabled={loading}>
-                        {added ? "Added" : loading ? "Adding…" : "Add Bill"}
-                    </button>
-                </div>
+        <input
+          name="date"
+          type="date"
+          required
+          className="p-3 border rounded md:col-span-2"
+        />
 
-            </form>
+        <div className="md:col-span-2">
+          <button
+            className="btn-primary-ui w-full p-3 text-white rounded"
+            disabled={loading}
+          >
+            {added ? "Added" : loading ? "Adding…" : "Add Bill"}
+          </button>
         </div>
-    );
-
+      </form>
+    </div>
+  );
 };
 
 export default AddBill;

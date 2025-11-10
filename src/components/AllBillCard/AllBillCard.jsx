@@ -42,7 +42,7 @@ const AllBillCard = () => {
 
 
     return (
-    <div className="space-y-4">
+    <div className="space-y-4 mb-10">
       <div className="flex flex-col md:flex-row gap-3 items-start md:items-center justify-start px-10 mx-auto w-full">
         <input
           value={q}
@@ -93,7 +93,7 @@ const AllBillCard = () => {
               <p className="text-sm text-gray-600">Location: {bill.location}</p>
               <p className="font-bold mt-2">৳ {bill.amount}</p>
 
-              <Link to={`./bill-details/${bill._id}`}>
+              <Link to={`/bill-details/${bill._id}`}>
                 <button className="btn-primary-ui w-full mt-3 py-2 text-white">
                   See Details
                 </button>
