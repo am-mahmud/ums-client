@@ -38,7 +38,7 @@ const AllBillCard = () => {
 
                     <p className="font-bold mt-2">৳ {bill.amount}</p>
 
-                    <Link to={`/bills/${bill._id}`}>
+                    <Link to={'/billdetails'}>
                         <button className="mt-3 w-full btn-primary-ui text-white py-2">
                             See Details
                         </button>

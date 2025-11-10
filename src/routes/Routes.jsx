@@ -5,6 +5,7 @@ import Bills from "../pages/Bills/Bills";
 import ErrorPage from "../pages/Error/ErrorPage";
 import Signin from "../pages/Auth/Signin";
 import Register from "../pages/Auth/Register";
+import BillDetails from "../pages/Bills/BillDetails";
 
 
 const router = createBrowserRouter([
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
       {
         path: '/resetpassword',
       },
+      {
+        path: '/billdetails',
+        element: <BillDetails></BillDetails>
+      }
     ]
   },
 ]);
