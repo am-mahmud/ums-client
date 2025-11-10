@@ -29,13 +29,13 @@ const BillDetails = () => {
             );
     }, [id]);
 
-    if (!bill) return <p className="text-center pt-20">Loading...</p>;
+    //if (!bill) return <p className="text-center pt-20">Loading...</p>;
 
     return (
         <div className="max-w-3xl mx-auto py-10">
             <img
                 src={bill.image}
-                alt={bill.title}
+                alt={""}
                 className="w-full h-60 object-cover rounded-lg"
             />
 
@@ -51,15 +51,18 @@ const BillDetails = () => {
             </div>
 
             <button
-                disabled={!isCurrentMonth}
-                className={`mt-6 w-full py-3 rounded-md ${isCurrentMonth
-                        ? "bg-green-600 hover:bg-green-700 text-white"
-                        : "bg-gray-400 cursor-not-allowed text-black"
+                disabled={!user || !isCurrentMonth}
+                onClick={() => setOpen(true)}
+                className={`mt-6 w-full py-3 rounded-md ${user && isCurrentMonth
+                        ? "bg-green-600 text-white"
+                        : "bg-gray-300 cursor-not-allowed"
                     }`}
             >
-                {isCurrentMonth
-                    ? "Pay Bill"
-                    : "Only Current Month Bills Can Be Paid"}
+                {user
+                    ? isCurrentMonth
+                        ? "Pay Bill"
+                        : "Only Current Month Bills Can Be Paid"
+                    : "Sign In to Pay"}
             </button>
         </div>
     );
