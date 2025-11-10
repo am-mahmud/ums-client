@@ -22,12 +22,13 @@ const AddBill = () => {
             location: form.location.value,
             description: form.description.value,
             date: form.date.value,
+            image: form.image.value || "",
         };
 
-        fetch("http://localhost:3000/my-bills", {
+        fetch("http://localhost:3000/bills", {
             method: "POST",
             headers: { "content-type": "application/json" },
-            body: JSON.stringify(newBill),  
+            body: JSON.stringify(newBill),
         })
             .then((res) => res.json())
             .then((data) => {
@@ -74,41 +75,19 @@ const AddBill = () => {
                     <option value="Internet">Internet</option>
                 </select>
 
-                <input
-                    type="number"
-                    name="amount"
-                    placeholder="Amount"
-                    required
-                    className="w-full p-3 border rounded"
-                />
+                <input name="amount" type="number" placeholder="Amount" required className="p-3 border rounded" />
 
-                <input
-                    type="text"
-                    name="location"
-                    placeholder="Location"
-                    required
-                    className="w-full p-3 border rounded"
-                />
+                <input name="location" type="text" placeholder="Location" required className="p-3 border rounded" />
 
-                <textarea
-                    name="description"
-                    placeholder="Description"
-                    className="w-full p-3 border rounded"
-                ></textarea>
+                <input name="image" type="text" placeholder="Image URL (optional)" className="p-3 border rounded md:col-span-2" />
 
-                <input
-                    type="date"
-                    name="date"
-                    required
-                    className="w-full p-3 border rounded"
-                />
-                <div className='col-span-1 md:col-span-2'>
-                    <button
-                        type="submit"
-                        disabled={loading}
-                        className="w-full btn-primary-ui text-white p-3 rounded"
-                    >
-                       {added ? "Added" : loading ? "Adding..." : "Add Bill"}
+                <textarea name="description" placeholder="Description" className="p-3 border rounded md:col-span-2"></textarea>
+
+                <input name="date" type="date" required className="p-3 border rounded md:col-span-2" />
+
+                <div className="md:col-span-2">
+                    <button className="btn-primary-ui w-full p-3 text-white rounded" disabled={loading}>
+                        {added ? "Added" : loading ? "Adding…" : "Add Bill"}
                     </button>
                 </div>
 
