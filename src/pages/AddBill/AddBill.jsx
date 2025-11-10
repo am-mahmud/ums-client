@@ -24,7 +24,7 @@ const AddBill = () => {
             date: form.date.value,
         };
 
-        fetch("http://localhost:3000/mybills", {
+        fetch("http://localhost:3000/my-bills", {
             method: "POST",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(newBill),  
