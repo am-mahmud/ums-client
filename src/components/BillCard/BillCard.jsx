@@ -16,16 +16,22 @@ const BillCard = () => {
 
     return (
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 justify-items-center text-gray-800 mb-10">
-            {recentBills.map((recentBill, index) => (
+            {recentBills.map((bill) => (
                 <div
-                    key={index}
+                    key={bill._id}
                     className="border w-96 rounded-xl shadow hover:shadow-lg p-4 bg-white dark:bg-gray-800 text-center"
                 >
-                    <img
-                        src={recentBill.image}
-                        alt={recentBill.title}
-                        className="w-full h-40 object-cover rounded-md"
-                    />
+                    {bill.image ? (
+                        <img
+                            src={bill.image}
+                            alt={bill.title}
+                            className="w-full h-40 object-cover rounded-md"
+                        />
+                    ) : (
+                        <div className="w-full h-40 bg-gray-200 rounded grid place-items-center">
+                            No Image
+                        </div>
+                    )}
                     <h2 className="text-xl font-semibold mt-3">{recentBill.title}</h2>
                     <p className="text-sm text-gray-600 dark:text-gray-300">
                         Category: {recentBill.category}
