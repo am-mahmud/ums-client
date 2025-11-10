@@ -14,7 +14,7 @@ import PrivetRoutes from "./PrivetRoutes";
 const router = createBrowserRouter([
   {
     path: "/",
-    Component: MainLayout,
+    element: <MainLayout></MainLayout>,
     errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
@@ -37,10 +37,13 @@ const router = createBrowserRouter([
         path: '/resetpassword',
       },
       {
-        path: '/billdetails/:id',
-        element: <PrivetRoutes>
-          <BillDetails></BillDetails>
-        </PrivetRoutes>
+        path: '/bill-details/:id',
+        element:
+          <PrivetRoutes>
+            <BillDetails></BillDetails>
+          </PrivetRoutes>
+
+
 
       },
       {

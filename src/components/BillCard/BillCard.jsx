@@ -1,6 +1,7 @@
 import React, { use, useEffect, useState } from 'react';
-import { Link } from 'react-router';
+
 import { AuthContext } from '../../contexts/AuthContext';
+import { Link } from 'react-router';
 
 const BillCard = () => {
     const [recentBills, setRecentBills] = useState([]);
@@ -43,6 +44,7 @@ const BillCard = () => {
                             See Details
                         </button>
                     </Link>
+
                 </div>
             ))}
         </div>
