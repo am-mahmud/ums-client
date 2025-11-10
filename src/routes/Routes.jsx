@@ -7,6 +7,7 @@ import Signin from "../pages/Auth/Signin";
 import Register from "../pages/Auth/Register";
 import BillDetails from "../pages/Bills/BillDetails";
 import MyBills from "../pages/MyBills/MyBills";
+import AddBill from "../pages/AddBill/AddBill";
 
 
 const router = createBrowserRouter([
@@ -41,6 +42,10 @@ const router = createBrowserRouter([
       {
         path: '/mybills',
         element: <MyBills></MyBills>
+      },
+      {
+        path: '/addbills',
+        element: <AddBill></AddBill>
       }
     ]
   },
