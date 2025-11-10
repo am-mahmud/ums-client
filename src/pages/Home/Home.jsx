@@ -37,7 +37,7 @@ const Home = () => {
 
    
       <Marquee speed={60} className="bg-white/30 backdrop-blur-sm p-4 shadow-inner">
-        <div className="flex items-center gap-20">
+        <div className="flex items-center space-x-2 gap-20">
           {companyLogos.concat(companyLogos).map((logo, index) => (
             <motion.img
               key={index}

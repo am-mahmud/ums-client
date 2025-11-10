@@ -1,6 +1,7 @@
 import React, { useEffect, useState,  use } from "react";
 import { useParams } from "react-router";
 import { AuthContext } from "../../contexts/AuthContext";
+import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
 
 const BillDetails = () => {
   const { id } = useParams();
@@ -26,11 +27,11 @@ const BillDetails = () => {
   }, [id]);
 
   if (!bill) {
-    return <p className="text-center pt-20 text-lg">Loading bill details...</p>;
+    return <LoadingSpinner />
   }
 
   return (
-    <div className="max-w-3xl mx-auto py-10">
+    <div className="max-w-3xl mx-auto py-10 px-10">
       {bill.image && (
         <img
           src={bill.image}
