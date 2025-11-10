@@ -54,84 +54,89 @@ const MyBills = () => {
     };
 
     return (
-        <div className="max-w-6xl mx-auto py-10 px-4 min-h-screen">
-            <h1 className="text-3xl font-bold mb-4 text-gray-900 dark:text-gray-100">
-                My Paid Bills
-            </h1>
 
-            <div className="my-4 p-4 bg-gray-100 dark:bg-gray-700 rounded-lg shadow-sm">
-                <p className="text-gray-800 dark:text-gray-200">
-                    <strong>Total Bills Paid:</strong> {myBills.length}
-                </p>
-                <p className="text-gray-800 dark:text-gray-200">
-                    <strong>Total Amount:</strong> ৳{totalAmount}
-                </p>
-            </div>
+        <div className="bg-linear-to-br from-[#2A7B9B]/80 via-[#57C785]/50 to-[#EDDD53]/20">
+            <div className="max-w-6xl mx-auto py-10 px-4 min-h-screen">
+                <h1 className="text-3xl font-bold mb-4 text-gray-900 dark:text-gray-100">
+                    My Paid Bills
+                </h1>
 
-            <button
-                onClick={pdf}
-                className="btn-primary-ui mb-6 text-sm sm:text-base"
-            >
-                Download Report
-            </button>
+                <div className="my-4 p-4 bg-gray-100 dark:bg-gray-700 rounded-lg shadow-sm">
+                    <p className="text-gray-800 dark:text-gray-200">
+                        <strong>Total Bills Paid:</strong> {myBills.length}
+                    </p>
+                    <p className="text-gray-800 dark:text-gray-200">
+                        <strong>Total Amount:</strong> ৳{totalAmount}
+                    </p>
+                </div>
 
-            <div className="overflow-x-auto rounded-lg shadow-sm border border-gray-200">
-                <table className="min-w-full border-collapse border border-gray-200 text-sm sm:text-base">
-                    <thead>
-                        <tr className="bg-gray-300 text-gray-800">
-                            <th className="p-2 sm:p-3 border border-gray-300">Username</th>
-                            <th className="p-2 sm:p-3 border border-gray-300">Email</th>
-                            <th className="p-2 sm:p-3 border border-gray-300">Amount</th>
-                            <th className="p-2 sm:p-3 border border-gray-300">Address</th>
-                            <th className="p-2 sm:p-3 border border-gray-300">Phone</th>
-                            <th className="p-2 sm:p-3 border border-gray-300">Date</th>
-                            <th className="p-2 sm:p-3 border border-gray-300">Update</th>
-                            <th className="p-2 sm:p-3 border border-gray-300">Delete</th>
-                        </tr>
-                    </thead>
+                <button
+                    onClick={pdf}
+                    className="btn-primary-ui mb-6 text-sm sm:text-base"
+                >
+                    Download Report
+                </button>
 
-                    <tbody>
-                        {myBills.map((bill) => (
-                            <tr
-                                key={bill._id}
-                                className="text-center border border-gray-300 hover:bg-gray-50 transition"
-                            >
-                                <td className="p-2 sm:p-3">{bill.username}</td>
-                                <td className="p-2 sm:p-3">{bill.email}</td>
-                                <td className="p-2 sm:p-3">৳{bill.amount}</td>
-                                <td className="p-2 sm:p-3">{bill.address}</td>
-                                <td className="p-2 sm:p-3">{bill.phone}</td>
-                                <td className="p-2 sm:p-3">{bill.date}</td>
-
-                                <td className="p-2 sm:p-3">
-                                    <button className="bg-green-600 text-white px-3 py-1 rounded text-xs sm:text-sm hover:bg-green-700">
-                                        Update
-                                    </button>
-                                </td>
-
-                                <td className="p-2 sm:p-3">
-                                    <button className="bg-red-600 text-white px-3 py-1 rounded text-xs sm:text-sm hover:bg-red-700">
-                                        Delete
-                                    </button>
-                                </td>
+                <div className="overflow-x-auto rounded-lg shadow-sm border border-gray-200">
+                    <table className="min-w-full border-collapse border border-gray-200 text-sm sm:text-base">
+                        <thead>
+                            <tr className="bg-gray-300 text-gray-800">
+                                <th className="p-2 sm:p-3 border border-gray-300">Username</th>
+                                <th className="p-2 sm:p-3 border border-gray-300">Email</th>
+                                <th className="p-2 sm:p-3 border border-gray-300">Amount</th>
+                                <th className="p-2 sm:p-3 border border-gray-300">Address</th>
+                                <th className="p-2 sm:p-3 border border-gray-300">Phone</th>
+                                <th className="p-2 sm:p-3 border border-gray-300">Date</th>
+                                <th className="p-2 sm:p-3 border border-gray-300">Update</th>
+                                <th className="p-2 sm:p-3 border border-gray-300">Delete</th>
                             </tr>
-                        ))}
-                    </tbody>
-                </table>
+                        </thead>
 
-                {editBill && (
-                    <EditModal
-                        bill={editBill}
-                        close={() => setEditBill(null)}
-                        update={(updated) =>
-                            setMyBills((prev) =>
-                                prev.map((b) => (b._id === updated._id ? updated : b))
-                            )
-                        }
-                    />
-                )}
+                        <tbody>
+                            {myBills.map((bill) => (
+                                <tr
+                                    key={bill._id}
+                                    className="text-center border border-gray-300 hover:bg-gray-50 transition"
+                                >
+                                    <td className="p-2 sm:p-3">{bill.username}</td>
+                                    <td className="p-2 sm:p-3">{bill.email}</td>
+                                    <td className="p-2 sm:p-3">৳{bill.amount}</td>
+                                    <td className="p-2 sm:p-3">{bill.address}</td>
+                                    <td className="p-2 sm:p-3">{bill.phone}</td>
+                                    <td className="p-2 sm:p-3">{bill.date}</td>
+
+                                    <td className="p-2 sm:p-3">
+                                        <button className="bg-green-600 text-white px-3 py-1 rounded text-xs sm:text-sm hover:bg-green-700">
+                                            Update
+                                        </button>
+                                    </td>
+
+                                    <td className="p-2 sm:p-3">
+                                        <button className="bg-red-600 text-white px-3 py-1 rounded text-xs sm:text-sm hover:bg-red-700">
+                                            Delete
+                                        </button>
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+
+                    {editBill && (
+                        <EditModal
+                            bill={editBill}
+                            close={() => setEditBill(null)}
+                            update={(updated) =>
+                                setMyBills((prev) =>
+                                    prev.map((b) => (b._id === updated._id ? updated : b))
+                                )
+                            }
+                        />
+                    )}
+                </div>
             </div>
         </div>
+
+
     );
 };
 
