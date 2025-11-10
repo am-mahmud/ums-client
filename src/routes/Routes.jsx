@@ -6,6 +6,7 @@ import ErrorPage from "../pages/Error/ErrorPage";
 import Signin from "../pages/Auth/Signin";
 import Register from "../pages/Auth/Register";
 import BillDetails from "../pages/Bills/BillDetails";
+import MyBills from "../pages/MyBills/MyBills";
 
 
 const router = createBrowserRouter([
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
       {
         path: '/billdetails/:id',
         element: <BillDetails></BillDetails>
+      },
+      {
+        path: '/mybills',
+        element: <MyBills></MyBills>
       }
     ]
   },

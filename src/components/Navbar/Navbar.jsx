@@ -30,7 +30,7 @@ const Navbar = () => {
         {
             user && <>
                 <div className='flex flex-col md:flex-row md:ml-4 mt-2 md:mt-0 gap-2 md:gap-4'>
-                    <ActiveLink to='/bills'>My Bills</ActiveLink>
+                    <ActiveLink to='/mybills'>My Bills</ActiveLink>
                 </div>
 
             </>
