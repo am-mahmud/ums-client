@@ -34,7 +34,7 @@ const router = createBrowserRouter([
         path: '/resetpassword',
       },
       {
-        path: '/billdetails',
+        path: '/billdetails/:id',
         element: <BillDetails></BillDetails>
       }
     ]

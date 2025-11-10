@@ -1,14 +1,19 @@
 import React, { use, useState } from 'react';
 import { FaGoogle } from 'react-icons/fa';
 import { GoEye, GoEyeClosed } from 'react-icons/go';
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 import { AuthContext } from '../../contexts/AuthContext';
+import { TiTickOutline } from 'react-icons/ti';
+import { MdErrorOutline } from 'react-icons/md';
+import { toast } from "react-toastify";
 
 const Register = () => {
 
     const [show, setShow] = useState(false);
 
-    const { signInWithGoogle } = use(AuthContext)
+    const { createUser, signInWithGoogle } = use(AuthContext)
+
+    const navigate = useNavigate();
 
 
     const handleGoogleSignIn = () => {
@@ -18,7 +23,7 @@ const Register = () => {
 
                 const newUser = {
                     name: result.user.displayName,
-                    email: result.user.email, 
+                    email: result.user.email,
                 }
 
                 fetch('http://localhost:3000/users', {
@@ -28,17 +33,111 @@ const Register = () => {
                     },
                     body: JSON.stringify(newUser)
                 })
-                .then(res => res.json())
-                .then(data => {
-                    console.log("Data Save", data);
-                    
-                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log("Data Save", data);
+
+                    })
+
+                navigate('/');
 
             })
             .catch(error => {
                 console.error(error);
             });
     }
+
+
+    const handleRegister = (e) => {
+        e.preventDefault();
+
+        const name = e.target.name?.value;
+        const email = e.target.email?.value;
+        const password = e.target.password?.value;
+
+        
+        const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
+
+        if (!passwordRegex.test(password)) {
+            if (password.length < 6) {
+                toast(
+                    <div className="flex items-center gap-2">
+                        <MdErrorOutline />
+                        <span>Password must be at least 6 characters long.</span>
+                    </div>
+                );
+            } else if (!/[A-Z]/.test(password)) {
+                toast(
+                    <div className="flex items-center gap-2">
+                        <MdErrorOutline />
+                        <span>Password must contain at least one uppercase letter.</span>
+                    </div>
+                );
+            } else if (!/[a-z]/.test(password)) {
+                toast(
+                    <div className="flex items-center gap-2">
+                        <MdErrorOutline />
+                        <span>Password must contain at least one lowercase letter.</span>
+                    </div>
+                );
+            }
+            return;
+        }
+
+    
+        createUser(email, password)
+            .then((result) => {
+                console.log("Firebase Registered:", result.user);
+
+                const newUser = {
+                    name: name,
+                    email: email,
+                };
+
+              
+                fetch("http://localhost:3000/users", {
+                    method: "POST",
+                    headers: {
+                        "content-type": "application/json",
+                    },
+                    body: JSON.stringify(newUser),
+                })
+                    .then((res) => res.json())
+                    .then((data) => {
+                        console.log("Saved to MongoDB:", data);
+
+                        toast(
+                            <div className="flex items-center gap-2">
+                                <TiTickOutline className="text-gray-800" />
+                                <span>Welcome to USM!</span>
+                            </div>
+                        );
+
+                        e.target.reset();
+                        navigate("/");
+                    })
+                    .catch((error) => {
+                        console.error("MongoDB Error:", error);
+                        toast(
+                            <div className="flex items-center gap-2">
+                                <MdErrorOutline />
+                                <span>MongoDB save failed.</span>
+                            </div>
+                        );
+                    });
+            })
+            .catch((error) => {
+                console.error("Firebase Error:", error);
+                toast(
+                    <div className="flex items-center gap-2">
+                        <MdErrorOutline />
+                        <span>Registration failed. Try again.</span>
+                    </div>
+                );
+            });
+    };
+
+
 
     return (
         <>
@@ -52,7 +151,7 @@ const Register = () => {
                 >
                     <div className="h-8 flex justify-end items-center px-3 bg-[#2A7B9B]" />
 
-                    <form className="p-6 pt-10 flex flex-col items-center space-y-5">
+                    <form onSubmit={handleRegister} className="p-6 pt-10 flex flex-col items-center space-y-5">
                         <div className="w-full">
                             <input
                                 name="name"
