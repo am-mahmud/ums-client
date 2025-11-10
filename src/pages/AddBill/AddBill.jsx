@@ -3,10 +3,12 @@ import React, { useState } from 'react';
 const AddBill = () => {
 
     const [loading, setLoading] = useState(false);
+    const [added, setAdded] = useState(false);
 
     const handleAddBill = (e) => {
         e.preventDefault();
         setLoading(true);
+        setAdded(false);
 
         console.log('add bill pressed');
 
@@ -19,14 +21,13 @@ const AddBill = () => {
             amount: Number(form.amount.value),
             location: form.location.value,
             description: form.description.value,
-            image: form.image.value,
             date: form.date.value,
         };
 
         fetch("http://localhost:3000/bills", {
             method: "POST",
             headers: { "content-type": "application/json" },
-            body: JSON.stringify(newBill),
+            body: JSON.stringify(newBill),  
         })
             .then((res) => res.json())
             .then((data) => {
@@ -104,7 +105,7 @@ const AddBill = () => {
                         type="submit"
                         className="w-full btn-primary-ui text-white p-3 rounded"
                     >
-                        {loading ? "Adding..." : "Add Bill"}
+                       {added ? "Added" : loading ? "Adding..." : "Add Bill"}
                     </button>
                 </div>
 
