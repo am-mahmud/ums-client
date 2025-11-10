@@ -9,12 +9,17 @@ const AllBillCard = () => {
 
 
     useEffect(() => {
+        setLoading(true);
         fetch("http://localhost:3000/bills")
             .then((res) => res.json())
-            .then((data) => setAllBills(data))
-            .catch((err) =>
-                console.error("Error fetching bills:", err)
-            );
+            .then((data) => {
+                setAllBills(data);
+                setLoading(false);
+            })
+            .catch((err) => {
+                console.error("Error fetching bills:", err);
+                setLoading(false);
+            });
     }, []);
 
     return (
