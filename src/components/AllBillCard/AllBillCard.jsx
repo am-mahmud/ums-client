@@ -2,7 +2,11 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router";
 
 const AllBillCard = () => {
-    const [allBills, setAllBills] = useState([]); 
+    const [allBills, setAllBills] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [q, setQ] = useState("");
+    const [category, setCategory] = useState("");
+
 
     useEffect(() => {
         fetch("http://localhost:3000/bills")
