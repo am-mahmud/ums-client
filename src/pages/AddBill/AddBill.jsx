@@ -4,6 +4,28 @@ const AddBill = () => {
 
     const [loading, setLoading] = useState(false);
 
+    const handleAddBill = (e) => {
+        e.preventDefault();
+        setLoading(true);
+
+        console.log('add bill pressed');
+        
+
+        const form = e.target;
+
+        const newBill = {
+            title: form.title.value,
+            category: form.category.value,
+            amount: Number(form.amount.value),
+            location: form.location.value,
+            description: form.description.value,
+            image: form.image.value,
+            date: form.date.value,
+        };
+
+
+    };
+
     return (
         <div className="max-w-xl mx-auto py-10">
             <h1 className="text-3xl font-bold">Add New Bill</h1>
