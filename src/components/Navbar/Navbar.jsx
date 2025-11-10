@@ -3,17 +3,30 @@ import React, { use } from 'react';
 import ActiveLink from '../ActiveLink/ActiveLink';
 import { RxHamburgerMenu } from 'react-icons/rx';
 import { Link } from 'react-router';
+import { AuthContext } from '../../contexts/AuthContext';
 
 
 const Navbar = () => {
 
-   
+    const {user, signOutUser} = use(AuthContext);
+
+   const handleSignOut = () =>{
+    signOutUser()
+    .then()
+    .catch()
+   }
 
     const links = < >
         <div className='flex flex-col md:flex-row gap-4'>
             <ActiveLink to='/'>Home</ActiveLink>
             <ActiveLink to='/bills'>Bills</ActiveLink>
         </div>
+
+        {
+            user && <>
+                <ActiveLink to='/bills'>My Bills</ActiveLink>
+            </>
+        }
 
     </>
     return (
@@ -37,14 +50,26 @@ const Navbar = () => {
                 </ul>
             </div>
 
-            <div className='navbar-end flex gap-2 '>
-                <div>
-                    <Link to='/login'><button className='btn-primary-ui'>Login</button></Link>
-                </div>
+            <div className='navbar-end '>
 
-                <div>
-                    <Link to='/register'><button className='btn-primary-ui'>Register</button></Link>
+                {
+                    user ? 
+                    <div>
+                    <Link to='/'><button onClick={handleSignOut} className='btn-primary-ui'>Sign Out</button></Link>
+                </div> : <div className='flex gap-3'>
+                    <div>
+                         <Link to='/signin'><button className='btn-primary-ui'>Sign In</button></Link>
+                    </div>
+
+                    <div>
+                         <Link to='/register'><button className='btn-primary-ui'>Register</button></Link>
+                    </div>
+                   
                 </div>
+                }
+                
+
+                
             </div>
 
         </div>
