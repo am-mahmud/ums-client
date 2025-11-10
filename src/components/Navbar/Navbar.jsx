@@ -52,7 +52,7 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <Link to='/'>
-                    <a className="text-xl px-1 py-1 font-bold">UMS</a>
+                    <a className="text-3xl px-1 py-1 font-extrabold">UMS</a>
                 </Link>
 
             </div>

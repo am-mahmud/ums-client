@@ -9,8 +9,6 @@ const Banner = () => {
         <section className="pt-28 pb-20 bg-linear-to-br from-[#2A7B9B]/60 via-[#57C785]/40 to-[#EDDD53]/20 text-center relative overflow-hidden stack-sans">
             <div className="absolute inset-0 bg-white/30 mix-blend-overlay"></div>
 
-
-
             <div className="relative max-w-5xl mx-auto px-6">
 
                 <div className="inline-flex items-center bg-white/70 px-4 py-2 rounded-full mb-6 shadow-md backdrop-blur-sm">
@@ -24,7 +22,7 @@ const Banner = () => {
                         alt=""
                         className="w-6 h-6 rounded-full -ml-2 border border-white"
                     />
-                    <span className="ml-3 text-sm font-semibold text-gray-800">
+                    <span className="ml-1 md:ml-3 text-xs md:text-sm font-thin md:font-semibold text-gray-800">
                         12,340+ Users Managing Their Bills Effortlessly
                     </span>
                 </div>
