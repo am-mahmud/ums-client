@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SummarySection = () => {
+const HowToSection = () => {
     return (
 
         <div className="text-gray-800 bg-base-200 py-12 px-6 md:px-16 lg:px-24">
@@ -46,4 +46,4 @@ const SummarySection = () => {
     );
 };
 
-export default SummarySection;
+export default HowToSection;

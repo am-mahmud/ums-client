@@ -3,7 +3,6 @@ import Banner from "../../components/Banner/Banner";
 import CategoryCard from "../../components/CategoryCard/CategoryCard";
 import Marquee from "react-fast-marquee";
 import BillCard from "../../components/BillCard/BillCard";
-import SummarySection from "../../components/SummarySection/SummarySection";
 import { AiFillThunderbolt } from "react-icons/ai";
 import { IoWater } from "react-icons/io5";
 import { HiLightBulb } from "react-icons/hi";
@@ -13,6 +12,7 @@ import descoImg from "../../assets/desco-img.png";
 import nescoImg from "../../assets/nesco-img.png";
 import titasImg from "../../assets/titas-img.png";
 import dhakaWasaImg from "../../assets/dhaka-wasa-logo.png";
+import HowToSection from "../../components/HowToSection/HowToSection";
 
 const Home = () => {
   const companyLogos = [
@@ -55,7 +55,7 @@ const Home = () => {
       <section className="py-12 px-6 md:px-10 text-center">
         <motion.h1
           className="text-4xl font-bold text-gray-800 mb-6 drop-shadow-md"
-          initial={{ opacity: 0, y: 10 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
@@ -73,10 +73,10 @@ const Home = () => {
         </motion.div>
       </section>
 
-      <section className="py-12 px-6 md:px-10 backdrop-blur-md">
+      <section className="py-6 px-6 md:px-10 backdrop-blur-md">
         <motion.h1
-          className="text-3xl md:text-4xl font-bold text-gray-800 text-center mb-6"
-          initial={{ opacity: 0, y: 10 }}
+          className="text-3xl md:text-4xl font-bold text-gray-800 text-center mb-8"
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
@@ -98,7 +98,7 @@ const Home = () => {
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.6 }}
         >
-          <SummarySection />
+          <HowToSection />
         </motion.div>
       </section>
 
