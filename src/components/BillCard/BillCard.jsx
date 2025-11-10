@@ -32,18 +32,19 @@ const BillCard = () => {
                             No Image
                         </div>
                     )}
-                    <h2 className="text-xl font-semibold mt-3">{recentBill.title}</h2>
-                    <p className="text-sm text-gray-600 dark:text-gray-300">
-                        Category: {recentBill.category}
-                    </p>
-                    <p className="text-sm text-gray-600 dark:text-gray-300">
-                        Location: {recentBill.location}
-                    </p>
-                    <p className="font-bold mt-2">৳ {recentBill.amount}</p>
 
-                    {
+                    <h2 className="text-xl font-semibold mt-3">{bill.title}</h2>
+                    <p className="text-sm text-gray-600 dark:text-gray-300">
+                        Category: {bill.category}
+                    </p>
+                    <p className="text-sm text-gray-600 dark:text-gray-300">
+                        Location: {bill.location}
+                    </p>
+                    <p className="font-bold mt-2">৳ {bill.amount}</p>
+
+                    {/* {
                         user ? (
-                            <Link to={`/billdetails/${recentBill._id}`}>
+                            <Link to={`/billdetails/${bill._id}`}>
                                 <button className="mt-3 w-full btn-primary-ui text-white py-2">
                                     See Details
                                 </button>
@@ -55,7 +56,13 @@ const BillCard = () => {
                                 </button>
                             </Link>
                         )
-                    }
+                    } */}
+
+                    <Link to={user ? `/billdetails/${bill._id}` : "/signin"}>
+                        <button className="btn-primary-ui w-full mt-3 py-2 text-white">
+                            See Details
+                        </button>
+                    </Link>
 
 
                 </div>
