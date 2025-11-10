@@ -26,7 +26,7 @@ const Home = () => {
 
   return (
     <div className="min-h-screen bg-linear-to-br from-[#2A7B9B]/20 via-[#57C785]/15 to-[#EDDD53]/10 text-gray-900">
-     
+
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -35,22 +35,23 @@ const Home = () => {
         <Banner />
       </motion.div>
 
-   
+
       <Marquee speed={60} className="bg-white/30 backdrop-blur-sm p-4 shadow-inner">
         <div className="flex items-center space-x-2 gap-20">
           {companyLogos.concat(companyLogos).map((logo, index) => (
             <motion.img
               key={index}
               src={logo}
-              alt="Company Logo"
+              alt=""
               className="h-10 w-auto object-contain opacity-80 hover:opacity-100 transition-transform duration-300 hover:scale-105"
               whileHover={{ scale: 1.1 }}
             />
           ))}
+            <div className="w-20" />
         </div>
       </Marquee>
 
-    
+
       <section className="py-12 px-6 md:px-10 text-center">
         <motion.h1
           className="text-4xl font-bold text-gray-800 mb-6 drop-shadow-md"
@@ -60,6 +61,9 @@ const Home = () => {
         >
           Categories
         </motion.h1>
+
+
+    
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -87,7 +91,7 @@ const Home = () => {
         </motion.div>
       </section>
 
-     
+
       <section className="py-12 px-6 md:px-10">
         <motion.div
           initial={{ opacity: 0 }}
@@ -98,7 +102,7 @@ const Home = () => {
         </motion.div>
       </section>
 
-      
+
       <Marquee className="bg-[#2A7B9B] p-4 text-white" gradient={false} speed={60}>
         <p className="font-semibold text-lg flex flex-row items-center gap-2">
           Notice:

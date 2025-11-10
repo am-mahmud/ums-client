@@ -24,12 +24,14 @@ const About = () => {
           all from one unified dashboard. Stay connected, informed, and
           stress-free.
         </motion.p>
+
+      
       </section>
 
       <section className="max-w-6xl mx-auto px-6 md:px-10 py-10">
         <div className="grid md:grid-cols-2 gap-10 items-center">
           <motion.img
-            src="https://cdn-icons-png.flaticon.com/512/9429/9429857.png"
+            src="../../../public/ums-icon.svg"
             alt=""
             className="rounded-2xl shadow-lg w-full h-auto"
             initial={{ opacity: 0, x: -30 }}
@@ -41,10 +43,10 @@ const About = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-3xl font-semibold text-white mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold  text-gray-800 mb-4">
               Our Mission
             </h2>
-            <p className="text-gray-100 leading-relaxed">
+            <p className="text-gray-200 leading-relaxed">
               We aim to simplify how users interact with essential services —
               from electricity and gas to water and internet. By providing an
               intuitive and transparent platform, we empower users to manage
@@ -58,28 +60,28 @@ const About = () => {
 
       <section className="py-16 px-6 bg-white/80 backdrop-blur-md">
         <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-12">
-          Why Choose <span className="text-[#2A7B9B]">UtilityManage?</span>
+          Why Choose <span className="text-[#2A7B9B]">Utility Management System?</span>
         </h2>
 
         <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-8 max-w-6xl mx-auto">
           {[
             {
-              icon: <FaBolt size={36} className="text-yellow-500" />,
+              icon: <FaBolt size={36} />,
               title: "Electricity Tracking",
               desc: "Monitor and pay your power bills seamlessly with automated reminders.",
             },
             {
-              icon: <FaGasPump size={36} className="text-orange-500" />,
+              icon: <FaGasPump size={36} />,
               title: "Gas Usage Insight",
               desc: "Keep an eye on gas usage trends and avoid unexpected billing surprises.",
             },
             {
-              icon: <FaWater size={36} className="text-blue-500" />,
+              icon: <FaWater size={36}  />,
               title: "Water Consumption",
               desc: "Track water usage efficiently and detect unusual consumption patterns.",
             },
             {
-              icon: <FaGlobe size={36} className="text-green-500" />,
+              icon: <FaGlobe size={36} />,
               title: "Internet Billing",
               desc: "View your internet bills in real-time and manage all ISPs from one dashboard.",
             },
@@ -107,7 +109,7 @@ const About = () => {
           Join thousands of users who’ve streamlined their daily utility
           tracking experience.
         </p>
-        <button className="px-6 py-3 bg-yellow-400 hover:bg-yellow-500 rounded-lg font-semibold text-gray-900 transition">
+        <button className="btn-secondary-ui">
           Get Started
         </button>
       </section>
