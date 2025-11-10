@@ -23,6 +23,23 @@ const AddBill = () => {
             date: form.date.value,
         };
 
+        fetch("http://localhost:3000/bills", {
+            method: "POST",
+            headers: { "content-type": "application/json" },
+            body: JSON.stringify(newBill),
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                console.log("Bill Added:", data);
+                alert("Bill Added Successfully!");
+                setLoading(false);
+                form.reset();
+            })
+            .catch((err) => {
+                console.error(err);
+                setLoading(false);
+            });
+
 
     };
 
