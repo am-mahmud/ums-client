@@ -14,9 +14,9 @@
 @layer components {
   .btn-primary-ui {
     @apply bg-gray-900 text-white 
-           px-4 py-2 text-sm  /* base (mobile) */
-           sm:px-6 sm:py-3 sm:text-base  /* small to medium screens */
-           md:px-8 md:py-3 md:text-lg  /* tablets & up */
+           px-4 py-2 text-sm  
+           sm:px-6 sm:py-3 sm:text-base  
+           md:px-8 md:py-3 md:text-lg  
            rounded-2xl font-semibold 
            hover:bg-gray-800 transition 
            duration-300 ease-in-out;
