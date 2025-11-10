@@ -1,12 +1,69 @@
-import React, { useState } from 'react';
+import React, { use, useState } from 'react';
 import { FaGoogle } from 'react-icons/fa';
 import { GoEye, GoEyeClosed } from 'react-icons/go';
-import { Link } from 'react-router';
+import { Link, useLocation, useNavigate } from 'react-router';
+import { AuthContext } from '../../contexts/AuthContext';
+import { TiTickOutline } from 'react-icons/ti';
+import { toast } from 'react-toastify';
 
 const Signin = () => {
 
+    const {signInUser, signInWithGoogle} = use(AuthContext)
+
     const [show, setShow] = useState(false);
 
+    const location = useLocation();
+    const navigate = useNavigate();
+
+    const handleSignIn = (e) => {
+        e.preventDefault();
+
+        const email = e.target.email?.value;
+        const password = e.target.password?.value;
+
+        console.log(email);
+        console.log(password);
+
+
+        signInUser(email, password)
+            .then(result => {
+                console.log(result.user);
+                e.target.reset();
+                toast(<div className="flex items-center gap-2">
+                    <TiTickOutline className="text-gray-800" />
+                    <span>Welcome to USM!</span>
+                </div>
+                );
+                navigate(location.state || '/');
+            })
+            .catch(error => {
+                console.error(error);
+                toast(<div className="flex items-center gap-2">
+                    <MdErrorOutline />
+                    <span>Invalid email or password!</span>
+                </div>
+                );
+            });
+
+    };
+
+    const handleGoogleSignIn = () => {
+        signInWithGoogle()
+            .then(() => {
+                toast(<div className="flex items-center gap-2">
+                    <TiTickOutline className="text-yellow-300" />
+                    <span>Sign in with Google successfully!</span>
+                </div>);
+                navigate('/');
+            })
+            .catch(error => {
+                console.error(error);
+                toast(<div className="flex items-center gap-2">
+                    <MdErrorOutline />
+                    <span>Google login failed!</span>
+                </div>);
+            });
+    }
 
     return (
 
@@ -21,7 +78,7 @@ const Signin = () => {
                 >
                     <div className="h-8 flex justify-end items-center px-3 bg-[#2A7B9B]" />
 
-                    <form className="p-6 pt-10 flex flex-col items-center space-y-5">
+                    <form onSubmit={handleSignIn} className="p-6 pt-10 flex flex-col items-center space-y-5">
                         <div className="w-full">
                             <input
                                 name="email"
@@ -55,6 +112,7 @@ const Signin = () => {
 
 
                         <button
+                            onClick={handleGoogleSignIn}
                             type="submit"
                             className=" mt-4 py-2 px-6 text-base md:text-xl font-bold rounded-md cursor-pointer
                                    btn-primary-ui flex items-center gap-2 md:gap-4"

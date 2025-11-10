@@ -8,13 +8,18 @@ import { AuthContext } from '../../contexts/AuthContext';
 
 const Navbar = () => {
 
-    const {user, signOutUser} = use(AuthContext);
+    const { user, signOutUser } = use(AuthContext);
 
-   const handleSignOut = () =>{
-    signOutUser()
-    .then()
-    .catch()
-   }
+    const handleSignOut = () => {
+        signOutUser()
+            .then(() => {
+
+            })
+            .catch(error => {
+                console.log(error);
+
+            })
+    }
 
     const links = < >
         <div className='flex flex-col md:flex-row gap-4'>
@@ -24,7 +29,10 @@ const Navbar = () => {
 
         {
             user && <>
-                <ActiveLink to='/bills'>My Bills</ActiveLink>
+                <div className='flex flex-col md:flex-row md:ml-4 mt-2 md:mt-0 gap-2 md:gap-4'>
+                    <ActiveLink to='/bills'>My Bills</ActiveLink>
+                </div>
+
             </>
         }
 
@@ -52,24 +60,23 @@ const Navbar = () => {
 
             <div className='navbar-end '>
 
-                {
-                    user ? 
+                {user ? (
                     <div>
-                    <Link to='/'><button onClick={handleSignOut} className='btn-primary-ui'>Sign Out</button></Link>
-                </div> : <div className='flex gap-3'>
-                    <div>
-                         <Link to='/signin'><button className='btn-primary-ui'>Sign In</button></Link>
+                        <button onClick={handleSignOut} className="btn-primary-ui">
+                            Sign Out
+                        </button>
                     </div>
-
-                    <div>
-                         <Link to='/register'><button className='btn-primary-ui'>Register</button></Link>
+                ) : (
+                    <div className="flex gap-3">
+                        <Link to="/signin">
+                            <button className="btn-primary-ui">Sign In</button>
+                        </Link>
+                        <Link to="/register">
+                            <button className="btn-primary-ui">Register</button>
+                        </Link>
                     </div>
-                   
-                </div>
-                }
-                
+                )}
 
-                
             </div>
 
         </div>
