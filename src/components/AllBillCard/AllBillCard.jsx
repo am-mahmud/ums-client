@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from "react";
-import { Link } from "react-router";
+import { Link} from "react-router";
 
 const AllBillCard = () => {
     const [allBills, setAllBills] = useState([]);
@@ -79,8 +79,8 @@ const AllBillCard = () => {
               {bill.image ? (
                 <img
                   src={bill.image}
-                  alt={bill.title}
-                  className="w-full h-40 object-cover rounded"
+                  alt={""}
+                  className="w-full h-40 object-contain rounded"
                 />
               ) : (
                 <div className="w-full h-40 bg-gray-200 rounded grid place-items-center">
@@ -93,7 +93,7 @@ const AllBillCard = () => {
               <p className="text-sm text-gray-600">Location: {bill.location}</p>
               <p className="font-bold mt-2">৳ {bill.amount}</p>
 
-              <Link to={`/billdetails/${bill._id}`}>
+              <Link to={`./bill-details/${bill._id}`}>
                 <button className="btn-primary-ui w-full mt-3 py-2 text-white">
                   See Details
                 </button>

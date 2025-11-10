@@ -24,8 +24,8 @@ const BillCard = () => {
                     {bill.image ? (
                         <img
                             src={bill.image}
-                            alt={bill.title}
-                            className="w-full h-40 object-cover rounded-md"
+                            alt={""}
+                            className="w-full h-40 object-contain rounded-md"
                         />
                     ) : (
                         <div className="w-full h-40 bg-gray-200 rounded grid place-items-center">
@@ -34,37 +34,15 @@ const BillCard = () => {
                     )}
 
                     <h2 className="text-xl font-semibold mt-3">{bill.title}</h2>
-                    <p className="text-sm text-gray-600 dark:text-gray-300">
-                        Category: {bill.category}
-                    </p>
-                    <p className="text-sm text-gray-600 dark:text-gray-300">
-                        Location: {bill.location}
-                    </p>
+                    <p className="text-sm text-gray-600">Category: {bill.category}</p>
+                    <p className="text-sm text-gray-600">Location: {bill.location}</p>
                     <p className="font-bold mt-2">৳ {bill.amount}</p>
 
-                    {/* {
-                        user ? (
-                            <Link to={`/billdetails/${bill._id}`}>
-                                <button className="mt-3 w-full btn-primary-ui text-white py-2">
-                                    See Details
-                                </button>
-                            </Link>
-                        ) : (
-                            <Link to="/signin">
-                                <button className="mt-3 w-full btn-primary-ui text-white py-2">
-                                    See Details
-                                </button>
-                            </Link>
-                        )
-                    } */}
-
-                    <Link to={user ? `/billdetails/${bill._id}` : "/signin"}>
+                    <Link to={user ? `/bill-details/${bill._id}` : "/signin"}>
                         <button className="btn-primary-ui w-full mt-3 py-2 text-white">
                             See Details
                         </button>
                     </Link>
-
-
                 </div>
             ))}
         </div>

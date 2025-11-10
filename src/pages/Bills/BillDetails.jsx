@@ -6,7 +6,7 @@ const BillDetails = () => {
     const { id } = useParams();
     const { user } = use(AuthContext);
     const [bill, setBill] = useState(null);
-    const [open, setOpen] = useState(false);
+    //const [open, setOpen] = useState(false);
     const [isCurrentMonth, setIsCurrentMonth] = useState(false);
 
     useEffect(() => {
