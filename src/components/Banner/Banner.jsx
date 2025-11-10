@@ -1,5 +1,8 @@
 import React from 'react';
 
+import userManImg from '../../assets/man.png'
+import userWomanImg from '../../assets/woman.png'
+
 const Banner = () => {
     return (
        <section className="pt-28 pb-20 bg-linear-to-br from-[#2A7B9B]/70 via-[#57C785]/60 to-[#EDDD53]/70 text-center relative overflow-hidden stack-sans">
@@ -11,12 +14,12 @@ const Banner = () => {
       
         <div className="inline-flex items-center bg-white/70 px-4 py-2 rounded-full mb-6 shadow-md backdrop-blur-sm">
           <img
-            src="https://randomuser.me/api/portraits/men/32.jpg"
+            src={userManImg}
             alt=""
             className="w-6 h-6 rounded-full -ml-2 border border-white"
           />
           <img
-            src="https://randomuser.me/api/portraits/women/44.jpg"
+            src={userWomanImg}
             alt=""
             className="w-6 h-6 rounded-full -ml-2 border border-white"
           />
