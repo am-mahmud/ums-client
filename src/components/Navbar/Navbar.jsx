@@ -10,6 +10,8 @@ const Navbar = () => {
 
     const { user, signOutUser } = use(AuthContext);
 
+    const defaultUserPhoto = "https://i.ibb.co.com/nsD8dcGf/user.png";
+
     const handleSignOut = () => {
         signOutUser()
             .then(() => {
@@ -62,25 +64,38 @@ const Navbar = () => {
                 </ul>
             </div>
 
-            <div className='navbar-end '>
-
+            <div className="navbar-end flex items-center gap-4">
                 {user ? (
-                    <div>
-                        <button onClick={handleSignOut} className="btn-primary-ui">
+                    <div className="flex items-center gap-3">
+                        <Link to="/profile">
+                            <img
+                                src={user.photoURL || defaultUserPhoto}
+                                alt="Profile"
+                                className="w-10 h-10 rounded-full border-2 border-white shadow-md cursor-pointer hover:scale-105 transition-transform duration-300 p-1"
+                            />
+                        </Link>
+
+                        <button
+                            onClick={handleSignOut}
+                            className="bg-[#2A7B9B] text-white font-semibold py-2 px-4 rounded-lg hover:bg-[#23697F] transition-all duration-300"
+                        >
                             Sign Out
                         </button>
                     </div>
                 ) : (
                     <div className="flex gap-3">
                         <Link to="/signin">
-                            <button className="btn-primary-ui">Sign In</button>
+                            <button className="bg-[#2A7B9B] text-white font-semibold py-2 px-4 rounded-lg hover:bg-[#23697F] transition-all duration-300">
+                                Sign In
+                            </button>
                         </Link>
                         <Link to="/register">
-                            <button className="btn-primary-ui">Register</button>
+                            <button className="bg-white text-[#2A7B9B] font-semibold py-2 px-4 rounded-lg border border-[#2A7B9B] hover:bg-[#E0F2F1] transition-all duration-300">
+                                Register
+                            </button>
                         </Link>
                     </div>
                 )}
-
             </div>
 
         </div>
