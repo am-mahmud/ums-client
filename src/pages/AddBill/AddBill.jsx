@@ -22,6 +22,7 @@ const AddBill = () => {
 
     const form = e.target;
     const title = form.title.value;
+    const location = form.location.value;
     const category = form.category.value;
     const amount = parseFloat(form.amount.value);
     const description = form.description.value;
@@ -36,6 +37,7 @@ const AddBill = () => {
       amount,
       description,
       date,
+      location,
       image: image || defaultImage,
       createdBy: user?.email,
     };
@@ -69,7 +71,7 @@ const AddBill = () => {
         <div className="max-w-xl mx-auto py-10 text-center ">
           <h1 className="text-3xl font-bold">Add New Bill</h1>
 
-          <form onSubmit={handleAddBill} className="mt-6">
+          <form onSubmit={handleAddBill} className="mt-6 px-10">
 
             <div>
               <label className="block text-start mb-1 font-medium">Bill Title</label>
@@ -112,7 +114,7 @@ const AddBill = () => {
 
             <div>
               <label className="block  text-start mb-1 font-medium">Description</label>
-              <textarea name="description" rows="3" required className="w-full border p-2 rounded"></textarea>
+              <textarea name="description" rows="3" className="w-full border p-2 rounded"></textarea>
             </div>
 
 
