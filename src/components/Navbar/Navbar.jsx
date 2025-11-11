@@ -4,14 +4,14 @@ import ActiveLink from '../ActiveLink/ActiveLink';
 import { RxHamburgerMenu } from 'react-icons/rx';
 import { Link } from 'react-router';
 import { AuthContext } from '../../contexts/AuthContext';
-import { ThemeContext } from '../../contexts/ThemeContext';
+import { useTheme } from '../../contexts/ThemeContext';
 
 
 const Navbar = () => {
 
     const { user, signOutUser } = use(AuthContext);
 
-    const { darkMode, setDarkMode } = use(ThemeContext);
+    const { darkMode, setDarkMode } = useTheme();
 
     const defaultUserPhoto = "https://i.ibb.co.com/nsD8dcGf/user.png";
 

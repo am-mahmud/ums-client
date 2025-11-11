@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Navbar from '../components/Navbar/Navbar';
 import { Outlet } from 'react-router';
 import Footer from '../components/Footer/Footer';
 
+
 const MainLayout = () => {
+
     return (
         <div>
 
@@ -14,7 +16,7 @@ const MainLayout = () => {
             </div>
 
             <Footer></Footer>
-            
+
         </div>
     );
 };

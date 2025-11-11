@@ -13,7 +13,7 @@ import nescoImg from "../../assets/nesco-img.png";
 import titasImg from "../../assets/titas-img.png";
 import dhakaWasaImg from "../../assets/dhaka-wasa-logo.png";
 import HowToSection from "../../components/HowToSection/HowToSection";
-import { ThemeContext } from "../../contexts/ThemeContext";
+
 
 const Home = () => {
   const companyLogos = [
@@ -25,16 +25,7 @@ const Home = () => {
     dhakaWasaImg,
   ];
 
-  const { darkMode } = use(ThemeContext);
-
-   useEffect(() => {
-    const homeContainer = document.getElementById("home-container");
-    if (darkMode) {
-      homeContainer.classList.add("dark");
-    } else {
-      homeContainer.classList.remove("dark");
-    }
-  }, [darkMode]);
+  
 
   return (
     <>
