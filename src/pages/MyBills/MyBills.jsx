@@ -3,6 +3,7 @@ import { use, useEffect, useState } from "react";
 import jsPDF from "jspdf";
 import autoTable from "jspdf-autotable";
 import { AuthContext } from "../../contexts/AuthContext";
+import EditModal from "../../components/EditModal/EditModal";
 
 const MyBills = () => {
     const { user } = use(AuthContext);
@@ -105,13 +106,13 @@ const MyBills = () => {
                                     <td className="p-2 sm:p-3">{bill.date}</td>
 
                                     <td className="p-2 sm:p-3">
-                                        <button className="bg-green-600 text-white px-3 py-1 rounded text-xs sm:text-sm hover:bg-green-700">
+                                        <button onClick={() => setEditBill(bill)} className="bg-green-600 text-white px-3 py-1 rounded text-xs sm:text-sm hover:bg-green-700">
                                             Update
                                         </button>
                                     </td>
 
                                     <td className="p-2 sm:p-3">
-                                        <button className="bg-red-600 text-white px-3 py-1 rounded text-xs sm:text-sm hover:bg-red-700">
+                                        <button onClick={() => remove(bill._id)} className="bg-red-600 text-white px-3 py-1 rounded text-xs sm:text-sm hover:bg-red-700">
                                             Delete
                                         </button>
                                     </td>
@@ -120,7 +121,7 @@ const MyBills = () => {
                         </tbody>
                     </table>
 
-                    {/* {editBill && (
+                    {editBill && (
                         <EditModal
                             bill={editBill}
                             close={() => setEditBill(null)}
@@ -130,7 +131,7 @@ const MyBills = () => {
                                 )
                             }
                         />
-                    )} */}
+                    )}
                 </div>
             </div>
         </div>
