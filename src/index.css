@@ -3,6 +3,7 @@
 
 @import "tailwindcss";
 @plugin "daisyui";
+@custom-variant dark (&:where(.dark, .dark *));
 
 .stack-sans {
   font-family: "Stack Sans Headline", sans-serif;
