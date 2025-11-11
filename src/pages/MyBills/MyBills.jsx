@@ -3,7 +3,6 @@ import { use, useEffect, useState } from "react";
 import jsPDF from "jspdf";
 import autoTable from "jspdf-autotable";
 import { AuthContext } from "../../contexts/AuthContext";
-import EditModal from "../../components/EditModal/EditModal";
 
 const MyBills = () => {
     const { user } = use(AuthContext);
@@ -121,7 +120,7 @@ const MyBills = () => {
                         </tbody>
                     </table>
 
-                    {editBill && (
+                    {/* {editBill && (
                         <EditModal
                             bill={editBill}
                             close={() => setEditBill(null)}
@@ -131,7 +130,7 @@ const MyBills = () => {
                                 )
                             }
                         />
-                    )}
+                    )} */}
                 </div>
             </div>
         </div>

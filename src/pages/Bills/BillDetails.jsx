@@ -1,13 +1,15 @@
-import React, { useEffect, useState,  use } from "react";
+import React, { useEffect, useState, use } from "react";
 import { useParams } from "react-router";
 import { AuthContext } from "../../contexts/AuthContext";
 import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
+import PayBillModal from "../../components/PayBillModal/PayBillModal";
 
 const BillDetails = () => {
   const { id } = useParams();
-  const { user } = use(AuthContext); 
+  const { user } = use(AuthContext);
   const [bill, setBill] = useState(null);
   const [isCurrentMonth, setIsCurrentMonth] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     fetch(`http://localhost:3000/bills/${id}`)
@@ -20,15 +22,13 @@ const BillDetails = () => {
         const now = new Date();
         setIsCurrentMonth(
           billDate.getMonth() === now.getMonth() &&
-          billDate.getFullYear() === now.getFullYear()
+            billDate.getFullYear() === now.getFullYear()
         );
       })
       .catch((err) => console.error("Error fetching bill details:", err));
   }, [id]);
 
-  if (!bill) {
-    return <LoadingSpinner />
-  }
+  if (!bill) return <LoadingSpinner />;
 
   return (
     <div className="max-w-3xl mx-auto py-10 px-10">
@@ -50,16 +50,16 @@ const BillDetails = () => {
         <p><strong>Category:</strong> {bill.category}</p>
         <p><strong>Location:</strong> {bill.location}</p>
         <p><strong>Amount:</strong> ৳{bill.amount}</p>
-        <p><strong>Date:</strong> {bill.date}</p>
+        <p><strong>Date:</strong> {new Date(bill.date).toISOString().split("T")[0]}</p>
       </div>
 
       <button
         disabled={!user || !isCurrentMonth}
-        onClick={() => console.log("Pay clicked")}
-        className={`mt-6 w-full py-3 rounded-md ${
+        onClick={() => setShowModal(true)}
+        className={`mt-6 w-full py-3 rounded-md transition font-semibold ${
           user && isCurrentMonth
-            ? "bg-green-600 text-white"
-            : "bg-gray-300 cursor-not-allowed"
+            ? "bg-green-600 hover:bg-green-700 text-white"
+            : "bg-gray-300 text-gray-600 cursor-not-allowed"
         }`}
       >
         {user
@@ -68,6 +68,14 @@ const BillDetails = () => {
             : "Only Current Month Bills Can Be Paid"
           : "Sign In to Pay"}
       </button>
+
+      {showModal && (
+        <PayBillModal
+          bill={bill}
+          user={user}
+          close={() => setShowModal(false)}
+        />
+      )}
     </div>
   );
 };
