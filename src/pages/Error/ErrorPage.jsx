@@ -10,7 +10,7 @@ import Footer from "../../components/Footer/Footer";
 const ErrorPage = () => {
   return (
     <>
-
+    <title>404</title>
     <Navbar></Navbar>
     <NotFound></NotFound>
     <Footer></Footer>
