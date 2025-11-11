@@ -35,7 +35,7 @@ const Home = () => {
     <>
 
 
-      <div  className="min-h-screen bg-linear-to-br from-[#2A7B9B]/20 via-[#57C785]/15 to-[#EDDD53]/10 text-gray-900">
+      <div  className={`min-h-screen transition-all duration-500 ${isDark? "bg-gray-900 text-white":"bg-linear-to-br from-[#2A7B9B]/20 via-[#57C785]/15 to-[#EDDD53]/10 text-gray-900"}`}>
 
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -46,7 +46,7 @@ const Home = () => {
         </motion.div>
 
 
-        <Marquee speed={60} className="bg-white/30 backdrop-blur-sm p-4 shadow-inner">
+        <Marquee speed={60} className={` backdrop-blur-sm p-4 shadow-inner ${isDark?"bg-white":"bg-white/30"}`}>
           <div className="flex items-center space-x-2 gap-20">
             {companyLogos.concat(companyLogos).map((logo, index) => (
               <motion.img
@@ -62,9 +62,9 @@ const Home = () => {
         </Marquee>
 
 
-        <section className="py-12 px-6 md:px-10 text-center">
+        <section className="pt-6 pb-6 px-6 md:px-10 text-center">
           <motion.h1
-            className="text-4xl font-bold text-gray-800 mb-6 drop-shadow-md"
+            className={`text-3xl md:text-4xl font-bold ${isDark? "text-white":"text-gray-800"} mb-6 drop-shadow-md`}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -83,9 +83,9 @@ const Home = () => {
           </motion.div>
         </section>
 
-        <section className="py-6 px-6 md:px-10 backdrop-blur-md">
+        <section className="px-6 md:px-10 backdrop-blur-md text-center">
           <motion.h1
-            className="text-3xl md:text-4xl font-bold text-gray-800 text-center mb-8"
+            className={`text-3xl md:text-4xl font-bold ${isDark? "text-white":"text-gray-800"} mb-6 drop-shadow-md`}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}

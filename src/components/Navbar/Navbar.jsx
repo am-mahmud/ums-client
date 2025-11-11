@@ -55,6 +55,7 @@ const Navbar = () => {
                         tabIndex="-1"
                         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
                         {links}
+
                     </ul>
                 </div>
                 <Link to='/'>
@@ -68,53 +69,59 @@ const Navbar = () => {
                 </ul>
             </div>
 
-            <div className="navbar-end flex items-center gap-4">
+            <div className="navbar-end flex items-center gap-2 sm:gap-3 md:gap-4 flex-nowrap">
                 {user ? (
-                    <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-2 sm:gap-3 md:gap-4">
+                   
                         <Link to="/profile">
                             <img
                                 src={user.photoURL || defaultUserPhoto}
                                 alt="Profile"
-                                className="w-10 h-10 rounded-full border-2 border-white shadow-md cursor-pointer hover:scale-105 transition-transform duration-300 p-1"
+                                className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-white shadow-md cursor-pointer hover:scale-105 transition-transform duration-300"
                             />
                         </Link>
 
+                      
                         <button
                             onClick={handleSignOut}
-                            className="bg-[#2A7B9B] text-white font-semibold py-2 px-4 rounded-lg hover:bg-[#23697F] transition-all duration-300"
+                            className="bg-[#2A7B9B] text-white font-semibold py-1.5 px-3 sm:py-2 sm:px-4 rounded-lg hover:bg-[#23697F] transition-all duration-300 text-sm sm:text-base whitespace-nowrap"
                         >
                             Sign Out
                         </button>
                     </div>
                 ) : (
-                    <div className="flex gap-3">
+                    <div className="flex items-center gap-2 sm:gap-3 md:gap-4">
                         <Link to="/signin">
-                            <button className="bg-[#2A7B9B] text-white font-semibold py-2 px-4 rounded-lg hover:bg-[#23697F] transition-all duration-300">
+                            <button className="bg-[#2A7B9B] text-white font-semibold py-1.5 px-3 sm:py-2 sm:px-4 rounded-lg hover:bg-[#23697F] transition-all duration-300 text-sm sm:text-base whitespace-nowrap">
                                 Sign In
                             </button>
                         </Link>
                         <Link to="/register">
-                            <button className="bg-white text-[#2A7B9B] font-semibold py-2 px-4 rounded-lg border border-[#2A7B9B] hover:bg-[#E0F2F1] transition-all duration-300">
+                            <button className="bg-white text-[#2A7B9B] font-semibold py-1.5 px-3 sm:py-2 sm:px-4 rounded-lg border border-[#2A7B9B] hover:bg-[#E0F2F1] transition-all duration-300 text-sm sm:text-base whitespace-nowrap">
                                 Register
                             </button>
                         </Link>
                     </div>
                 )}
+
+            
+                <label
+                    className="ml-2 relative inline-flex items-center justify-center h-7 sm:h-8 w-12 sm:w-14 cursor-pointer rounded-full bg-gray-300 dark:bg-gray-700 transition-all shrink-0"
+                >
+                    <input
+                        onClick={toggleTheme}
+                        type="checkbox"
+                        className="peer sr-only"
+                        id="darkToggle"
+                    />
+                    <span
+                        className="absolute left-1 top-1 h-5 w-5 sm:h-6 sm:w-6 rounded-full bg-white dark:bg-gray-900 transition-all duration-300 peer-checked:translate-x-5 sm:peer-checked:translate-x-6"
+                    ></span>
+                </label>
             </div>
 
-            <label
-                className="ml-2 relative inline-block h-8 w-14 cursor-pointer rounded-full bg-gray-300 transition has-checked:bg-gray-900"
-            >
-                <input
-                    onClick={toggleTheme}
-                    className="peer sr-only"
-                    id="darkToggle"
-                    type="checkbox"
-                />
-                <span
-                    className="absolute inset-y-0 start-0 m-1 size-6 rounded-full bg-gray-300 ring-[6px] ring-inset ring-white transition-all peer-checked:start-8 peer-checked:w-2 peer-checked:bg-white peer-checked:ring-transparent"
-                ></span>
-            </label>
+
+
 
         </div>
     );
