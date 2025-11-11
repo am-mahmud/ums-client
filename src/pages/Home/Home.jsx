@@ -1,4 +1,4 @@
-import React from "react";
+import React, { use, useEffect } from "react";
 import Banner from "../../components/Banner/Banner";
 import CategoryCard from "../../components/CategoryCard/CategoryCard";
 import Marquee from "react-fast-marquee";
@@ -13,6 +13,7 @@ import nescoImg from "../../assets/nesco-img.png";
 import titasImg from "../../assets/titas-img.png";
 import dhakaWasaImg from "../../assets/dhaka-wasa-logo.png";
 import HowToSection from "../../components/HowToSection/HowToSection";
+import { ThemeContext } from "../../contexts/ThemeContext";
 
 const Home = () => {
   const companyLogos = [
@@ -24,9 +25,20 @@ const Home = () => {
     dhakaWasaImg,
   ];
 
+  const { darkMode } = use(ThemeContext);
+
+   useEffect(() => {
+    const homeContainer = document.getElementById("home-container");
+    if (darkMode) {
+      homeContainer.classList.add("dark");
+    } else {
+      homeContainer.classList.remove("dark");
+    }
+  }, [darkMode]);
+
   return (
     <>
-      <div className="min-h-screen bg-linear-to-br from-[#2A7B9B]/20 via-[#57C785]/15 to-[#EDDD53]/10 text-gray-900">
+      <div id="home-container" className="min-h-screen bg-linear-to-br from-[#2A7B9B]/20 via-[#57C785]/15 to-[#EDDD53]/10 text-gray-900">
 
         <motion.div
           initial={{ opacity: 0, y: -20 }}

@@ -4,11 +4,14 @@ import ActiveLink from '../ActiveLink/ActiveLink';
 import { RxHamburgerMenu } from 'react-icons/rx';
 import { Link } from 'react-router';
 import { AuthContext } from '../../contexts/AuthContext';
+import { ThemeContext } from '../../contexts/ThemeContext';
 
 
 const Navbar = () => {
 
     const { user, signOutUser } = use(AuthContext);
+
+    const { darkMode, setDarkMode } = use(ThemeContext);
 
     const defaultUserPhoto = "https://i.ibb.co.com/nsD8dcGf/user.png";
 
@@ -98,11 +101,17 @@ const Navbar = () => {
                 )}
 
                 <label
-                    class="relative inline-block h-8 w-14 cursor-pointer rounded-full bg-gray-300 transition [-webkit-tap-highlight-color:_transparent] has-[:checked]:bg-gray-900"
+                    className="relative inline-block h-8 w-14 cursor-pointer rounded-full bg-gray-300 transition has-checked:bg-gray-900"
                 >
-                    <input class="peer sr-only" id="AcceptConditions" type="checkbox" />
+                    <input
+                        className="peer sr-only"
+                        id="darkToggle"
+                        type="checkbox"
+                        checked={darkMode}
+                        onChange={() => setDarkMode(!darkMode)}
+                    />
                     <span
-                        class="absolute inset-y-0 start-0 m-1 size-6 rounded-full bg-gray-300 ring-[6px] ring-inset ring-white transition-all peer-checked:start-8 peer-checked:w-2 peer-checked:bg-white peer-checked:ring-transparent"
+                        className="absolute inset-y-0 start-0 m-1 size-6 rounded-full bg-gray-300 ring-[6px] ring-inset ring-white transition-all peer-checked:start-8 peer-checked:w-2 peer-checked:bg-white peer-checked:ring-transparent"
                     ></span>
                 </label>
             </div>
