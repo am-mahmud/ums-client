@@ -13,9 +13,13 @@ import nescoImg from "../../assets/nesco-img.png";
 import titasImg from "../../assets/titas-img.png";
 import dhakaWasaImg from "../../assets/dhaka-wasa-logo.png";
 import HowToSection from "../../components/HowToSection/HowToSection";
+import { ThemeContext } from "../../contexts/ThemeContext";
 
 
 const Home = () => {
+
+  const { isDark } = use(ThemeContext);
+  
   const companyLogos = [
     descoImg,
     nescoImg,
@@ -29,7 +33,9 @@ const Home = () => {
 
   return (
     <>
-      <div id="home-container" className="min-h-screen bg-linear-to-br from-[#2A7B9B]/20 via-[#57C785]/15 to-[#EDDD53]/10 text-gray-900">
+
+
+      <div  className="min-h-screen bg-linear-to-br from-[#2A7B9B]/20 via-[#57C785]/15 to-[#EDDD53]/10 text-gray-900">
 
         <motion.div
           initial={{ opacity: 0, y: -20 }}

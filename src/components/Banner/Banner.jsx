@@ -1,15 +1,19 @@
-import React, { use, useEffect } from 'react';
+import React, { use } from 'react';
 
 import userManImg from '../../assets/man.png'
 import userWomanImg from '../../assets/woman.png'
 import { Link } from 'react-router';
+import { ThemeContext } from '../../contexts/ThemeContext';
 
 
 const Banner = () => {
+    const { isDark } = use(ThemeContext);
 
-    
     return (
-        <section id='banner-container' className="pt-28 pb-20 bg-linear-to-br from-[#2A7B9B]/60 via-[#57C785]/40 to-[#EDDD53]/20 text-center relative overflow-hidden stack-sans">
+        <section className={`relative min-h-screen flex flex-col items-center justify-center text-center overflow-hidden transition-all duration-500 ${isDark
+                ? "bg-gray-900 text-white"
+                : "bg-gradient-to-br from-[#2A7B9B]/60 via-[#57C785]/40 to-[#EDDD53]/20 text-gray-900"}`}>
+                    
             <div className="absolute inset-0 bg-white/30 mix-blend-overlay"></div>
 
             <div className="relative max-w-5xl mx-auto px-6">
@@ -31,7 +35,7 @@ const Banner = () => {
                 </div>
 
 
-                <h1 className="text-4xl md:text-6xl font-extrabold text-gray-900 leading-tight drop-shadow-sm">
+                <h1 className={`text-4xl md:text-6xl font-extrabold leading-tight drop-shadow-sm ${isDark? "text-white": "text-gray-900 "}`}>
                     SMART UTILITY BILL
                 </h1>
                 <h2 className="text-4xl md:text-6xl font-light text-gray-800">
