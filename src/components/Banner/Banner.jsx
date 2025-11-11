@@ -11,9 +11,9 @@ const Banner = () => {
 
     return (
         <section className={`relative min-h-screen flex flex-col items-center justify-center text-center overflow-hidden transition-all duration-500 ${isDark
-                ? "bg-gray-900 text-white"
-                : "bg-gradient-to-br from-[#2A7B9B]/60 via-[#57C785]/40 to-[#EDDD53]/20 text-gray-900"}`}>
-                    
+            ? "bg-gray-900 text-white"
+            : "bg-linear-to-br from-[#2A7B9B]/60 via-[#57C785]/40 to-[#EDDD53]/20 text-gray-900"}`}>
+
             <div className="absolute inset-0 bg-white/30 mix-blend-overlay"></div>
 
             <div className="relative max-w-5xl mx-auto px-6">
@@ -35,15 +35,15 @@ const Banner = () => {
                 </div>
 
 
-                <h1 className={`text-4xl md:text-6xl font-extrabold leading-tight drop-shadow-sm ${isDark? "text-white": "text-gray-900 "}`}>
+                <h1 className={`text-4xl md:text-6xl font-extrabold leading-tight drop-shadow-sm ${isDark ? "text-white" : "text-gray-900 "}`}>
                     SMART UTILITY BILL
                 </h1>
-                <h2 className="text-4xl md:text-6xl font-light text-gray-800">
+                <h2 className={`text-4xl md:text-6xl font-light ${isDark ? "text-white" : "text-gray-900 "}`}>
                     MANAGEMENT SYSTEM
                 </h2>
 
 
-                <p className="mt-6 text-lg text-gray-800 font-medium max-w-2xl mx-auto">
+                <p className={`mt-6 text-lg  font-medium max-w-2xl mx-auto ${isDark ? "text-white" : "text-gray-900 "}`}>
                     Simplify your <span className="font-semibold">Electricity</span>,{" "}
                     <span className="font-semibold">Gas</span>, <span className="font-semibold">Water</span>, and{" "}
                     <span className="font-semibold">Internet</span> payments — all from one dashboard.
