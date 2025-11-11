@@ -1,55 +1,60 @@
-import React, { useEffect, useMemo, useState } from "react";
-import { Link} from "react-router";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router";
+import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 
 const AllBillCard = () => {
-    const [allBills, setAllBills] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [q, setQ] = useState("");
-    const [category, setCategory] = useState("");
+  const [allBills, setAllBills] = useState([]);
+  const [categories, setCategories] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [category, setCategory] = useState("");
 
+  //Server - CLinet filter
 
-    useEffect(() => {
-        setLoading(true);
-        fetch("http://localhost:3000/bills")
-            .then((res) => res.json())
-            .then((data) => {
-                setAllBills(data);
-                setLoading(false);
-            })
-            .catch((err) => {
-                console.error("Error fetching bills:", err);
-                setLoading(false);
-            });
-    }, []);
+  useEffect(() => {
+    fetch("http://localhost:3000/categories")
+      .then((res) => res.json())
+      .then((data) => setCategories(data))
+      .catch((err) => console.error("Error fetching categories:", err));
+  }, []);
 
-    const filtered = useMemo(() => {
-        let result = allBills;
+  useEffect(() => {
+    setLoading(true);
+    const url = category
+      ? `http://localhost:3000/bills?category=${encodeURIComponent(category)}`
+      : "http://localhost:3000/bills";
 
-        if (category) result = result.filter((b) => b.category === category);
+    fetch(url)
+      .then((res) => {
+        if (!res.ok) throw new Error("Failed to fetch bills");
+        return res.json();
+      })
+      .then((data) => {
+        setAllBills(data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error("Error fetching bills:", err);
+        setError(err.message);
+        setLoading(false);
+      });
+  }, [category]);
 
-        if (q) {
-            const s = q.toLowerCase();
-            result = result.filter(
-                (b) =>
-                    b.title?.toLowerCase().includes(s) ||
-                    b.location?.toLowerCase().includes(s) ||
-                    b.category?.toLowerCase().includes(s)
-            );
-        }
-
-        return result;
-    }, [allBills, q, category]);
-
-
+  if (loading) {
     return (
+      <LoadingSpinner></LoadingSpinner>
+    );
+  }
+
+
+  return (
     <div className="space-y-4 mb-10">
       <div className="flex flex-col md:flex-row gap-3 items-start md:items-center justify-start px-10 mx-auto w-full">
-        <input
-          value={q}
-          onChange={(e) => setQ(e.target.value)}
-          placeholder="Search bills..."
+        {/* <input
+          value={category}
+          onChange={(e) => setCategory(e.target.value)}
+          placeholder="Search bills By Category"
           className="p-3 border rounded w-full md:w-1/2"
-        />
+        /> */}
 
         <select
           value={category}
@@ -57,21 +62,22 @@ const AllBillCard = () => {
           className="p-3 border rounded w-full md:w-64"
         >
           <option value="">All Categories</option>
-          <option value="Electricity">Electricity</option>
-          <option value="Gas">Gas</option>
-          <option value="Water">Water</option>
-          <option value="Internet">Internet</option>
+          {categories.map((cat) => (
+            <option key={cat._id} value={cat.title}>
+              {cat.title}
+            </option>
+          ))}
         </select>
       </div>
 
 
       {loading ? (
         <div className="text-center py-16">Loading bills…</div>
-      ) : filtered.length === 0 ? (
+      ) : allBills.length === 0 ? (
         <div className="text-center py-16">No bills found.</div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 justify-items-center">
-          {filtered.map((bill) => (
+          {allBills.map((bill) => (
             <div
               key={bill._id}
               className="border w-96 rounded-xl shadow hover:shadow-lg p-4 bg-white dark:bg-gray-800 text-center"

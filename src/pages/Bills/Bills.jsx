@@ -1,12 +1,13 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import AllBillCard from "../../components/AllBillCard/AllBillCard";
 import { motion } from "framer-motion";
-import { AiOutlineFileText } from "react-icons/ai";
 
 const Bills = () => {
+
+
   return (
     <div className="min-h-screen bg-linear-to-br from-[#2A7B9B]/80 via-[#57C785]/50 to-[#EDDD53]/20 text-gray-800">
-     
+
       <section className="relative py-20 text-center overflow-hidden">
         <div className="absolute inset-0 bg-white/20 backdrop-blur-sm"></div>
         <motion.div
@@ -16,9 +17,6 @@ const Bills = () => {
           transition={{ duration: 0.7 }}
         >
           <div className="flex flex-col items-center gap-3">
-            <div className="p-4 bg-white/20 rounded-full backdrop-blur-md">
-              <AiOutlineFileText className="text-4xl text-gray-800" />
-            </div>
             <h1 className="text-4xl md:text-5xl font-bold text-gray-800 drop-shadow-lg">
               All Bills Till Today
             </h1>
@@ -39,7 +37,7 @@ const Bills = () => {
         <AllBillCard />
       </motion.section>
 
-    
+
     </div>
   );
 };

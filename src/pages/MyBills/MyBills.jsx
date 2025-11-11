@@ -31,7 +31,7 @@ const MyBills = () => {
         setMyBills((prev) => prev.filter((b) => b._id !== id));
     };
 
-    const pdf = () => {
+    const dawonloadPdf = () => {
         const doc = new jsPDF();
         doc.text("My Paid Bills Report", 14, 15);
 
@@ -71,7 +71,7 @@ const MyBills = () => {
                 </div>
 
                 <button
-                    onClick={pdf}
+                    onClick={dawonloadPdf}
                     className="btn-primary-ui mb-6 text-sm sm:text-base"
                 >
                     Download Report

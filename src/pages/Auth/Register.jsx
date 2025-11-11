@@ -205,12 +205,6 @@ const Register = () => {
                         </button>
 
 
-
-                        <Link to='/resetpassword' className="text-[#444] underline text-sm">
-                            Forgot password?
-                        </Link>
-
-
                         <button
                             type="submit"
                             className="w-36 mt-4 py-2 px-6 text-base md:text-xl font-bold rounded-md cursor-pointer

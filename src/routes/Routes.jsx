@@ -35,9 +35,6 @@ const router = createBrowserRouter([
         element: <Register></Register>
       },
       {
-        path: '/resetpassword',
-      },
-      {
         path: '/bill-details/:id',
         element:
           <PrivetRoutes>
