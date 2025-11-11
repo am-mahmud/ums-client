@@ -1,12 +1,15 @@
-import React from 'react';
+import React, { use, useEffect } from 'react';
 
 import userManImg from '../../assets/man.png'
 import userWomanImg from '../../assets/woman.png'
 import { Link } from 'react-router';
 
+
 const Banner = () => {
+
+    
     return (
-        <section className="pt-28 pb-20 bg-linear-to-br from-[#2A7B9B]/60 via-[#57C785]/40 to-[#EDDD53]/20 text-center relative overflow-hidden stack-sans">
+        <section id='banner-container' className="pt-28 pb-20 bg-linear-to-br from-[#2A7B9B]/60 via-[#57C785]/40 to-[#EDDD53]/20 text-center relative overflow-hidden stack-sans">
             <div className="absolute inset-0 bg-white/30 mix-blend-overlay"></div>
 
             <div className="relative max-w-5xl mx-auto px-6">
