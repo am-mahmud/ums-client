@@ -10,6 +10,8 @@ import MyBills from "../pages/MyBills/MyBills";
 import AddBill from "../pages/AddBill/AddBill";
 import PrivetRoutes from "./PrivetRoutes";
 import About from "../pages/About/About";
+import MyProfile from "../pages/Profile/MyProfile";
+import UpdateProfile from "../pages/Profile/UpdateProfile";
 
 
 const router = createBrowserRouter([
@@ -35,13 +37,23 @@ const router = createBrowserRouter([
         element: <Register></Register>
       },
       {
+        path: "/profile",
+        element: <PrivetRoutes>
+          <MyProfile></MyProfile>
+        </PrivetRoutes>
+      },
+      {
+        path: "/updateprofile",
+        element: <PrivetRoutes>
+          <UpdateProfile></UpdateProfile>
+        </PrivetRoutes>
+      },
+      {
         path: '/bill-details/:id',
         element:
           <PrivetRoutes>
             <BillDetails></BillDetails>
           </PrivetRoutes>
-
-
 
       },
       {
@@ -60,7 +72,7 @@ const router = createBrowserRouter([
 
       },
       {
-        path:'/about',
+        path: '/about',
         element: <About></About>
       }
     ]
