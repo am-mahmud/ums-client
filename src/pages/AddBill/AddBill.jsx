@@ -25,7 +25,10 @@ const AddBill = () => {
     const category = form.category.value;
     const amount = parseFloat(form.amount.value);
     const description = form.description.value;
+    const image = form.image.value;
     const date = new Date();
+
+    const defaultImage = "https://i.ibb.co.com/Z6Dtv0nJ/receipt.png";
 
     const newBill = {
       title,
@@ -33,7 +36,7 @@ const AddBill = () => {
       amount,
       description,
       date,
-      image: "https://i.ibb.co.com/Y4VwJkNw/thunder.png",
+      image: image || defaultImage,
       createdBy: user?.email,
     };
 
@@ -63,7 +66,7 @@ const AddBill = () => {
         <h1 className="text-3xl font-bold">Add New Bill</h1>
 
         <form onSubmit={handleAddBill} className="mt-6">
-    
+
           <div>
             <label className="block text-start mb-1 font-medium">Bill Title</label>
             <input name="title" type="text" required className="w-full border p-2 rounded" />
@@ -79,6 +82,18 @@ const AddBill = () => {
                 </option>
               ))}
             </select>
+          </div>
+
+          <div>
+            <label className="block text-start mb-1 font-medium">Image URL (optional)</label>
+            <input
+              name="image"
+              type="url"
+              className="w-full border p-2 rounded"
+            />
+            <p className="text-xs text-start text-gray-500 mt-1">
+              Leave blank to use default image.
+            </p>
           </div>
 
           <div>
