@@ -102,6 +102,11 @@ const AddBill = () => {
           </div>
 
           <div>
+            <label className="block  text-start mb-1 font-medium">Location</label>
+            <input name="location" rows="3" required className="w-full border p-2 rounded"></input>
+          </div>
+
+          <div>
             <label className="block  text-start mb-1 font-medium">Description</label>
             <textarea name="description" rows="3" required className="w-full border p-2 rounded"></textarea>
           </div>
