@@ -1,6 +1,8 @@
 import React, { useContext, useState, useEffect } from "react";
 import { AuthContext } from "../../contexts/AuthContext";
 import { useNavigate } from "react-router";
+import { toast } from "react-toastify";
+import { TiTickOutline } from "react-icons/ti";
 
 const UpdateProfile = () => {
   const { user, updateUserProfile } = useContext(AuthContext);
@@ -21,10 +23,21 @@ const UpdateProfile = () => {
 
     updateUserProfile(name, photoURL)
       .then(() => {
+        toast(<div className="flex items-center gap-2">
+          <TiTickOutline className="text-[#2A7B9B]" />
+          <span>Profile update successful</span>
+        </div>);
         navigate("/profile");
       })
       .catch((error) => {
-        console.error("Error updating profile:", error);
+
+        toast(
+          <div className="flex items-center gap-2">
+            <MdErrorOutline className="#EDDD53" />
+            <span>Profile update failed</span>
+          </div>
+        );
+
       });
   };
 
