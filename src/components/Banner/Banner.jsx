@@ -4,7 +4,7 @@ import userManImg from '../../assets/man.png'
 import userWomanImg from '../../assets/woman.png'
 import { Link } from 'react-router';
 import { ThemeContext } from '../../contexts/ThemeContext';
-
+import {Typewriter} from 'react-simple-typewriter'
 
 const Banner = () => {
     const { isDark } = use(ThemeContext);
@@ -36,10 +36,10 @@ const Banner = () => {
 
 
                 <h1 className={`text-4xl md:text-6xl font-extrabold leading-tight drop-shadow-sm ${isDark ? "text-white" : "text-gray-900 "}`}>
-                    SMART UTILITY BILL
+                    SMART <span> <Typewriter words={['UTILITY BILL']} loop={false} typeSpeed={70} deleteSpeed={50}></Typewriter>  </span> 
                 </h1>
                 <h2 className={`text-4xl md:text-6xl font-light ${isDark ? "text-white" : "text-gray-900 "}`}>
-                    MANAGEMENT SYSTEM
+                   <span> <Typewriter words={['MANAGEMENT SYSTEM']} loop={false} typeSpeed={60} deleteSpeed={40}></Typewriter>  </span>  
                 </h2>
 
 
