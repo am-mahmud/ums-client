@@ -53,7 +53,7 @@ const AuthProvider = ({ children }) => {
                 })
                     .then(res => res.json())
                     .then(data => {
-                        console.log('after getting token', data.token)
+                        //console.log('after getting token', data.token)
                         localStorage.setItem('token', data.token);
                     })
             }
