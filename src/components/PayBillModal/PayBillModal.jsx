@@ -1,6 +1,10 @@
 import React, { useState } from "react";
+import { toast } from "react-toastify";
 
 const PayBillModal = ({ bill, user, close }) => {
+ 
+  // This is another type of form with single on change 
+  
   const [form, setForm] = useState({
     email: user?.email || "",
     billId: bill._id,
@@ -26,10 +30,20 @@ const PayBillModal = ({ bill, user, close }) => {
     });
 
     if (response.ok) {
-    //   toast.success("Payment Successful!");
+      toast(<div className="flex items-center gap-2">
+        <TiTickOutline className="text-[#2A7B9B]" />
+        <span>Payment Successful!</span>
+      </div>);
+
       close();
     } else {
-    //   toast.error("Failed to submit payment. Try again.");
+      toast(
+        <div className="flex items-center gap-2">
+          <MdErrorOutline className="#EDDD53" />
+          <span>Failed to submit payment. Try again..</span>
+        </div>
+      );
+
     }
   };
 
@@ -45,7 +59,6 @@ const PayBillModal = ({ bill, user, close }) => {
           type="email"
           name="email"
           value={form.email}
-          readOnly
           className="w-full border p-3 rounded"
         />
 
@@ -53,7 +66,6 @@ const PayBillModal = ({ bill, user, close }) => {
           type="text"
           name="billId"
           value={form.billId}
-          readOnly
           className="w-full border p-3 rounded"
         />
 
@@ -61,7 +73,6 @@ const PayBillModal = ({ bill, user, close }) => {
           type="number"
           name="amount"
           value={form.amount}
-          readOnly
           className="w-full border p-3 rounded"
         />
 
@@ -99,7 +110,6 @@ const PayBillModal = ({ bill, user, close }) => {
           type="date"
           name="date"
           value={form.date}
-          readOnly
           className="w-full border p-3 rounded"
         />
 
