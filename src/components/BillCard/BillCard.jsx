@@ -9,7 +9,7 @@ const BillCard = () => {
     const user = use(AuthContext);
 
     useEffect(() => {
-        fetch('http://localhost:3000/recent-bills')
+        fetch('https://ums-server-delta.vercel.app/recent-bills')
             .then(res => res.json())
             .then(data => setRecentBills(data))
             .catch(err => console.error('Error fetching recent bills:', err));

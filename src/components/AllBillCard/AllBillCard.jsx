@@ -11,7 +11,7 @@ const AllBillCard = () => {
   //Server - CLinet filter
 
   useEffect(() => {
-    fetch("http://localhost:3000/categories")
+    fetch("https://ums-server-delta.vercel.app/categories")
       .then((res) => res.json())
       .then((data) => setCategories(data))
       .catch((err) => console.error("Error fetching categories:", err));
@@ -20,8 +20,8 @@ const AllBillCard = () => {
   useEffect(() => {
     setLoading(true);
     const url = category
-      ? `http://localhost:3000/bills?category=${encodeURIComponent(category)}`
-      : "http://localhost:3000/bills";
+      ? `https://ums-server-delta.vercel.app/bills?category=${encodeURIComponent(category)}`
+      : "https://ums-server-delta.vercel.app/bills";
 
     fetch(url)
       .then((res) => {

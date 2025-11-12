@@ -2,6 +2,8 @@ import { div } from 'framer-motion/client';
 import React, { use, useEffect, useState } from 'react';
 import { AuthContext } from '../../contexts/AuthContext';
 import { toast } from 'react-toastify';
+import { MdErrorOutline } from 'react-icons/md';
+import { TiTickOutline } from 'react-icons/ti';
 
 const AddBill = () => {
   const [loading, setLoading] = useState(false);
@@ -10,7 +12,7 @@ const AddBill = () => {
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/categories")
+    fetch("https://ums-server-delta.vercel.app/categories")
       .then((res) => res.json())
       .then((data) => setCategories(data))
       .catch((err) => console.error("Error fetching categories", err));
@@ -45,7 +47,7 @@ const AddBill = () => {
       createdBy: user?.email,
     };
 
-    fetch("http://localhost:3000/bills", {
+    fetch("https://ums-server-delta.vercel.app/bills", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newBill),

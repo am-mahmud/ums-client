@@ -26,7 +26,7 @@ const Register = () => {
                     email: result.user.email,
                 }
 
-                fetch('http://localhost:3000/users', {
+                fetch('https://ums-server-delta.vercel.app/users', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'
@@ -95,7 +95,7 @@ const Register = () => {
                 };
 
               
-                fetch("http://localhost:3000/users", {
+                fetch("https://ums-server-delta.vercel.app/users", {
                     method: "POST",
                     headers: {
                         "content-type": "application/json",

@@ -44,7 +44,7 @@ const AuthProvider = ({ children }) => {
             if (currentUser) {
                 const loggedUser = { email: currentUser.email }
 
-                fetch('http://localhost:3000/getToken', {
+                fetch('https://ums-server-delta.vercel.app/getToken', {
                     method: 'POST',
                     headers: {
                         'content-type': "application/json"

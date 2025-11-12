@@ -12,7 +12,7 @@ const BillDetails = () => {
   const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/bills/${id}`, {
+    fetch(`https://ums-server-delta.vercel.app/bills/${id}`, {
       headers: {
         authorization: `Bearer ${localStorage.getItem('token')}`
       }

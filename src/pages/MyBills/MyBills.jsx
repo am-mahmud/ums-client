@@ -18,7 +18,7 @@ const MyBills = () => {
         if (!user?.email) return;
         user.getIdToken()
 
-        fetch(`http://localhost:3000/my-bills?email=${user.email}`, {
+        fetch(`https://ums-server-delta.vercel.app/my-bills?email=${user.email}`, {
             headers: {
                 authorization: `Bearer ${localStorage.getItem('token')}`
             }
@@ -38,7 +38,7 @@ const MyBills = () => {
         if (!confirm("Delete this bill?")) return;
 
         try {
-            const res = await fetch(`http://localhost:3000/my-bills/${id}`, {
+            const res = await fetch(`https://ums-server-delta.vercel.app/my-bills/${id}`, {
                 method: "DELETE",
             });
 
