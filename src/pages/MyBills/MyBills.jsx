@@ -4,6 +4,7 @@ import jsPDF from "jspdf";
 import autoTable from "jspdf-autotable";
 import { AuthContext } from "../../contexts/AuthContext";
 import EditModal from "../../components/EditModal/EditModal";
+import { toast } from "react-toastify";
 
 const MyBills = () => {
     const { user } = use(AuthContext);
@@ -19,19 +20,56 @@ const MyBills = () => {
             .then((data) => setMyBills(data));
     }, [user?.email]);
 
-    const totalAmount = myBills.reduce((sum, b) => sum + Number(b.amount), 0);
+    let totalAmount = 0;
+
+    for (const bill of myBills) {
+        totalAmount += Number(bill.amount);
+    }
 
     const remove = async (id) => {
         if (!confirm("Delete this bill?")) return;
 
-        await fetch(`http://localhost:3000/my-bills/${id}`, {
-            method: "DELETE",
-        });
+        try {
+            const res = await fetch(`http://localhost:3000/my-bills/${id}`, {
+                method: "DELETE",
+            });
 
-        setMyBills((prev) => prev.filter((b) => b._id !== id));
+            if (res.ok) {
+                setMyBills((prev) => prev.filter((b) => b._id !== id));
+                toast(<div className="flex items-center gap-2">
+                    <TiTickOutline className="text-[#2A7B9B]" />
+                    <span>Bill deleted successfully!</span>
+                </div>);
+            } else {
+                toast(
+                    <div className="flex items-center gap-2">
+                        <MdErrorOutline className="#EDDD53" />
+                        <span>Failed to delete bill.</span>
+                    </div>
+                );
+
+            }
+        } catch (error) {
+            toast(
+                <div className="flex items-center gap-2">
+                    <MdErrorOutline className="#EDDD53" />
+                    <span>Network error while deleting bill</span>
+                </div>
+            );
+
+        }
     };
 
     const dawonloadPdf = () => {
+        if (myBills.length === 0) {
+            toast(
+                <div className="flex items-center gap-2">
+                    <MdErrorOutline className="#EDDD53" />
+                    <span>No bills available to download!</span>
+                </div>
+            );
+            return;
+        }
         const doc = new jsPDF();
         doc.text("My Paid Bills Report", 14, 15);
 
@@ -51,6 +89,11 @@ const MyBills = () => {
         });
 
         doc.save("MyBills.pdf");
+
+        toast(<div className="flex items-center gap-2">
+            <TiTickOutline className="text-[#2A7B9B]" />
+            <span>PDF downloaded successfully!</span>
+        </div>);
     };
 
     return (
