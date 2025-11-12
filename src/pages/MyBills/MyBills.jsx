@@ -16,11 +16,17 @@ const MyBills = () => {
 
     useEffect(() => {
         if (!user?.email) return;
+        user.getIdToken()
 
-        fetch(`http://localhost:3000/my-bills?email=${user.email}`)
+        fetch(`http://localhost:3000/my-bills?email=${user.email}`, {
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('token')}`
+            }
+        })
             .then((res) => res.json())
             .then((data) => setMyBills(data));
-    }, [user?.email]);
+
+    }, [user]);
 
     let totalAmount = 0;
 

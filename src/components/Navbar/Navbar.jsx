@@ -58,8 +58,8 @@ const Navbar = () => {
 
                     </ul>
                 </div>
-                <Link to='/'>
-                    <a className="text-3xl px-1 py-1 font-extrabold">UMS</a>
+                <Link to='/' className="text-3xl px-1 py-1 font-extrabold">
+                    UMS
                 </Link>
 
             </div>
@@ -72,7 +72,7 @@ const Navbar = () => {
             <div className="navbar-end flex items-center gap-2 sm:gap-3 md:gap-4 flex-nowrap">
                 {user ? (
                     <div className="flex items-center gap-2 sm:gap-3 md:gap-4">
-                   
+
                         <Link to="/profile">
                             <img
                                 src={user.photoURL || defaultUserPhoto}
@@ -81,7 +81,7 @@ const Navbar = () => {
                             />
                         </Link>
 
-                      
+
                         <button
                             onClick={handleSignOut}
                             className="bg-[#2A7B9B] text-white font-semibold py-1.5 px-3 sm:py-2 sm:px-4 rounded-lg hover:bg-[#23697F] transition-all duration-300 text-sm sm:text-base whitespace-nowrap"
@@ -104,7 +104,7 @@ const Navbar = () => {
                     </div>
                 )}
 
-            
+
                 <label
                     className="ml-2 relative inline-flex items-center justify-center h-7 sm:h-8 w-12 sm:w-14 cursor-pointer rounded-full bg-gray-300 dark:bg-gray-700 transition-all shrink-0"
                 >

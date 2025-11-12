@@ -12,7 +12,11 @@ const BillDetails = () => {
   const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/bills/${id}`)
+    fetch(`http://localhost:3000/bills/${id}`, {
+      headers: {
+        authorization: `Bearer ${localStorage.getItem('token')}`
+      }
+    })
       .then((res) => res.json())
       .then((data) => {
         if (!data || data.message === "Bill not found") return;
@@ -26,7 +30,7 @@ const BillDetails = () => {
         );
       })
       .catch((err) => console.error("Error fetching bill details:", err));
-  }, [id]);
+  }, [id, user]);
 
   if (!bill) return <LoadingSpinner />;
 
@@ -34,7 +38,7 @@ const BillDetails = () => {
     <>
 
       <title>Bill Details</title>
-      
+
       <div className="max-w-3xl mx-auto py-10 px-10">
         {bill.image && (
           <img
@@ -61,8 +65,8 @@ const BillDetails = () => {
           disabled={!user || !isCurrentMonth}
           onClick={() => setShowModal(true)}
           className={`mt-6 w-full py-3 rounded-md transition font-semibold ${user && isCurrentMonth
-              ? "bg-green-600 hover:bg-green-700 text-white"
-              : "bg-gray-300 text-gray-600 cursor-not-allowed"
+            ? "bg-green-600 hover:bg-green-700 text-white"
+            : "bg-gray-300 text-gray-600 cursor-not-allowed"
             }`}
         >
           {user
