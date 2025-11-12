@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { toast } from "react-toastify";
 
 const EditModal = ({ bill, close, update }) => {
   const [form, setForm] = useState({
@@ -24,9 +25,19 @@ const EditModal = ({ bill, close, update }) => {
     if (response.ok) {
       const updated = { ...bill, ...form };
       update(updated);
+      toast(<div className="flex items-center gap-2">
+        <TiTickOutline className="text-[#2A7B9B]" />
+        <span>Update Successful!</span>
+      </div>);
       close();
     } else {
-      alert("Failed to update bill");
+      toast(
+        <div className="flex items-center gap-2">
+          <MdErrorOutline className="#EDDD53" />
+          <span>Failed to update bill</span>
+        </div>
+      );
+
     }
   };
 

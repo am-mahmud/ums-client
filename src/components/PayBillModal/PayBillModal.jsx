@@ -3,7 +3,7 @@ import { toast } from "react-toastify";
 
 const PayBillModal = ({ bill, user, close }) => {
  
-  // This is another type of form with single on change 
+  // This is another type of form with single on change and taking input in a object 
   
   const [form, setForm] = useState({
     email: user?.email || "",
