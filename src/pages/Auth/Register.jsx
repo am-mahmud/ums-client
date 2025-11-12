@@ -62,21 +62,21 @@ const Register = () => {
             if (password.length < 6) {
                 toast(
                     <div className="flex items-center gap-2">
-                        <MdErrorOutline />
+                         <MdErrorOutline className="#EDDD53"/>
                         <span>Password must be at least 6 characters long.</span>
                     </div>
                 );
             } else if (!/[A-Z]/.test(password)) {
                 toast(
                     <div className="flex items-center gap-2">
-                        <MdErrorOutline />
+                         <MdErrorOutline className="#EDDD53"/>
                         <span>Password must contain at least one uppercase letter.</span>
                     </div>
                 );
             } else if (!/[a-z]/.test(password)) {
                 toast(
                     <div className="flex items-center gap-2">
-                        <MdErrorOutline />
+                         <MdErrorOutline className="#EDDD53"/>
                         <span>Password must contain at least one lowercase letter.</span>
                     </div>
                 );
@@ -108,7 +108,7 @@ const Register = () => {
 
                         toast(
                             <div className="flex items-center gap-2">
-                                <TiTickOutline className="text-gray-800" />
+                                <TiTickOutline className="text-[#2A7B9B]" />
                                 <span>Welcome to USM!</span>
                             </div>
                         );
@@ -120,8 +120,8 @@ const Register = () => {
                         console.error("MongoDB Error:", error);
                         toast(
                             <div className="flex items-center gap-2">
-                                <MdErrorOutline />
-                                <span>MongoDB save failed.</span>
+                                 <MdErrorOutline className="#EDDD53"/>
+                                <span>User Data failed to save in MongoDB</span>
                             </div>
                         );
                     });
@@ -130,7 +130,7 @@ const Register = () => {
                 console.error("Firebase Error:", error);
                 toast(
                     <div className="flex items-center gap-2">
-                        <MdErrorOutline />
+                         <MdErrorOutline className="#EDDD53"/>
                         <span>Registration failed. Try again.</span>
                     </div>
                 );

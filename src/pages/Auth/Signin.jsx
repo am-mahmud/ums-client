@@ -30,7 +30,7 @@ const Signin = () => {
                 console.log(result.user);
                 e.target.reset();
                 toast(<div className="flex items-center gap-2">
-                    <TiTickOutline className="text-gray-800" />
+                    <TiTickOutline className="text-[#2A7B9B]" />
                     <span>Welcome to USM!</span>
                 </div>
                 );
@@ -39,7 +39,7 @@ const Signin = () => {
             .catch(error => {
                 console.error(error);
                 toast(<div className="flex items-center gap-2">
-                    <MdErrorOutline />
+                    <MdErrorOutline className="#EDDD53"/>
                     <span>Invalid email or password!</span>
                 </div>
                 );
@@ -51,15 +51,15 @@ const Signin = () => {
         signInWithGoogle()
             .then(() => {
                 toast(<div className="flex items-center gap-2">
-                    <TiTickOutline className="text-yellow-300" />
-                    <span>Sign in with Google successfully!</span>
+                    <TiTickOutline className="text-[#2A7B9B]" />
+                    <span>Welcome to USM! Sign in with Google successfully!</span>
                 </div>);
                 navigate('/');
             })
             .catch(error => {
                 console.error(error);
                 toast(<div className="flex items-center gap-2">
-                    <MdErrorOutline />
+                    <MdErrorOutline className="#EDDD53"/>
                     <span>Google login failed!</span>
                 </div>);
             });
