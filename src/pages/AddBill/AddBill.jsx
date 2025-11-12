@@ -1,6 +1,7 @@
 import { div } from 'framer-motion/client';
 import React, { use, useEffect, useState } from 'react';
 import { AuthContext } from '../../contexts/AuthContext';
+import { toast } from 'react-toastify';
 
 const AddBill = () => {
   const [loading, setLoading] = useState(false);
@@ -14,6 +15,8 @@ const AddBill = () => {
       .then((data) => setCategories(data))
       .catch((err) => console.error("Error fetching categories", err));
   }, []);
+
+  // Form with using useState for every single filed - Easy but lengthy 
 
   const handleAddBill = (e) => {
     e.preventDefault();
@@ -54,11 +57,24 @@ const AddBill = () => {
         setAdded(true);
         form.reset();
 
+        toast(<div className="flex items-center gap-2">
+          <TiTickOutline className="text-[#2A7B9B]" />
+          <span>Bill added successfully!"</span>
+        </div>);
+
+
         setTimeout(() => setAdded(false), 1500);
       })
       .catch((err) => {
         console.error(err);
         setLoading(false);
+
+        toast(
+          <div className="flex items-center gap-2">
+            <MdErrorOutline className="#EDDD53" />
+            <span>Failed to add bill. Please try again.</span>
+          </div>
+        );
       });
   };
 
@@ -66,7 +82,7 @@ const AddBill = () => {
     <>
 
       <title>Add Bill</title>
-      
+
       <div className='bg-linear-to-br from-[#2A7B9B]/80 via-[#57C785]/50 to-[#EDDD53]/20'>
         <div className="max-w-xl mx-auto py-10 text-center ">
           <h1 className="text-3xl font-bold">Add New Bill</h1>
