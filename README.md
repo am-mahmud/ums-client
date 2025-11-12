@@ -4,9 +4,9 @@ A full-stack web application designed to manage and track various utility bills 
 The system provides a secure platform for users to view, pay, and download their billing information with real-time updates and authentication.
 
 ## 🔗 Necessary Links 
-|Live Site Link | |Sever Repository Link | |Client Repository Link |
-|--------|-------------| -------------|
- Ready to deply | https://github.com/am-mahmud/ums-server |  https://github.com/am-mahmud/ums-client
+|Live Site Link  |Sever Repository Link | Client Repository Link |
+|--------------|-------------|-------------|
+| Ready to deploy | https://github.com/am-mahmud/ums-server |  https://github.com/am-mahmud/ums-client
  
 
 
