@@ -16,8 +16,7 @@ const MyBills = () => {
 
     useEffect(() => {
         if (!user?.email) return;
-        user.getIdToken()
-
+    
         fetch(`https://ums-server-delta.vercel.app/my-bills?email=${user.email}`, {
             headers: {
                 authorization: `Bearer ${localStorage.getItem('token')}`

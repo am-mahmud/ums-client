@@ -49,7 +49,9 @@ const AddBill = () => {
 
     fetch("https://ums-server-delta.vercel.app/bills", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: { "Content-Type": "application/json",
+         authorization: `Bearer ${localStorage.getItem('token')}`,
+       },
       body: JSON.stringify(newBill),
     })
       .then((res) => res.json())
