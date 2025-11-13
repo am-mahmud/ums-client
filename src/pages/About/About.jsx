@@ -36,7 +36,7 @@ const About = () => {
         <section className="max-w-6xl mx-auto px-6 md:px-10 py-10">
           <div className="grid md:grid-cols-2 gap-10 items-center">
             <motion.img
-              src="../../../public/ums-icon.svg"
+              src="/ums-icon.svg"
               alt=""
               className="rounded-2xl shadow-lg w-full h-auto"
               initial={{ opacity: 0, x: -30 }}
