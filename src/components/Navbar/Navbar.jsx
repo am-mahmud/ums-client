@@ -12,7 +12,7 @@ const Navbar = () => {
 
     const { user, signOutUser } = use(AuthContext);
 
-    const { isDark, toggleTheme } = use(ThemeContext);
+    const { toggleTheme } = use(ThemeContext);
 
     const defaultUserPhoto = "https://i.ibb.co.com/nsD8dcGf/user.png";
 
@@ -112,7 +112,7 @@ const Navbar = () => {
                         onClick={toggleTheme}
                         type="checkbox"
                         className="peer sr-only"
-                        id="darkToggle"
+                        // id="darkToggle"
                     />
                     <span
                         className="absolute left-1 top-1 h-5 w-5 sm:h-6 sm:w-6 rounded-full bg-white dark:bg-gray-900 transition-all duration-300 peer-checked:translate-x-5 sm:peer-checked:translate-x-6"
