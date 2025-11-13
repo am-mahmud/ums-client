@@ -44,7 +44,7 @@ const AddBill = () => {
       date,
       location,
       image: image || defaultImage,
-      createdBy: user?.email,
+      createdBy: user?.email, // to check if each user is creating bill or not 
     };
 
     fetch("https://ums-server-delta.vercel.app/bills", {
