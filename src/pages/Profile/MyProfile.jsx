@@ -37,9 +37,9 @@ const MyProfile = () => {
               <p className="text-gray-700 text-lg">
                 Email: {user?.email || "No Email Available"}
               </p>
-              <p className="text-gray-700 text-lg">
+              {/* <p className="text-gray-700 text-lg">
                 Phone Number: {user?.phoneNumber || "No Phone Number Available"}
-              </p>
+              </p> */}
             </div>
           </div>
 

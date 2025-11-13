@@ -3,6 +3,7 @@ import { AuthContext } from "../../contexts/AuthContext";
 import { useNavigate } from "react-router";
 import { toast } from "react-toastify";
 import { TiTickOutline } from "react-icons/ti";
+import { MdErrorOutline } from "react-icons/md";
 
 const UpdateProfile = () => {
   const { user, updateUserProfile } = useContext(AuthContext);
@@ -10,11 +11,13 @@ const UpdateProfile = () => {
 
   const [name, setName] = useState("");
   const [photoURL, setPhotoURL] = useState("");
+  // const [number, setPhoneNumber] = useState("");
 
   useEffect(() => {
     if (user) {
       setName(user.displayName || "");
       setPhotoURL(user.photoURL || "");
+      // setPhoneNumber(user.phoneNumber || "")
     }
   }, [user]);
 
@@ -60,6 +63,15 @@ const UpdateProfile = () => {
               className="w-full p-3 text-lg rounded-md border border-gray-300 focus:ring-2 focus:ring-[#57C785] outline-none text-gray-700"
               required
             />
+            
+            {/* <input
+              type="number"
+              value={number}
+              onChange={(e) => setPhoneNumber(e.target.value)}
+              placeholder="Enter your Phone Number"
+              className="w-full p-3 text-lg rounded-md border border-gray-300 focus:ring-2 focus:ring-[#57C785] outline-none text-gray-700"
+              required
+            /> */}
 
             <input
               type="text"
@@ -69,6 +81,8 @@ const UpdateProfile = () => {
               className="w-full p-3 text-lg rounded-md border border-gray-300 focus:ring-2 focus:ring-[#57C785] outline-none text-gray-700"
               required
             />
+
+            
 
             <button
               type="submit"
