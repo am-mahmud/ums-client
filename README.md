@@ -75,6 +75,48 @@ Together, these two layers communicate securely through REST APIs, protected wit
 - The server interacts with MongoDB to access or update data.
 - The client displays bills, supports PDF export, and management actions.
 
+## 🏃‍♂️ How to Run Locally
+
+To run the Utility Management System (UMS) on your local machine, follow the steps below.
+You must run both client and server.
+
+####🔧 1️⃣ Clone the Repositories
+- Clone Client: git clone https://github.com/am-mahmud/ums-client
+- Clone Server: git clone https://github.com/am-mahmud/ums-server
+
+##### 📦 2️⃣ Install Dependencies
+- Client
+- cd ums-client
+- npm install
+- Server
+- cd ums-server
+- npm install
+
+#### 🔐 3️⃣ Set Up Environment Variables
+- Client (.env)
+- Create a .env file inside ums-client and add your Firebase config:
+VITE_apiKey=your_api_key
+VITE_authDomain=your_auth_domain
+VITE_projectId=your_project_id
+VITE_storageBucket=your_bucket
+VITE_messagingSenderId=your_sender_id
+VITE_appId=your_app_id
+
+- Server (.env)
+- Inside ums-server, create a .env file:
+
+PORT=3000
+DB_URL=your_mongodb_connection_uri
+FIREBASE_PROJECT_ID=your_firebase_project_id
+FIREBASE_CLIENT_EMAIL=your_firebase_admin_email
+FIREBASE_PRIVATE_KEY="your_firebase_private_key"
+JWT_SECRET=your_jwt_secret
+
+#### ▶️ Start the Server
+- cd ums-server
+- npm run dev
+- Server will run on: http://localhost:3000
+
 ## 📚 Core Features Summary
 |Feature	|Description|
 |--------|-------------|
