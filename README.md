@@ -95,22 +95,23 @@ You must run both client and server.
 #### 🔐 3️⃣ Set Up Environment Variables
 - Client (.env)
 - Create a .env file inside ums-client and add your Firebase config:
-VITE_apiKey=your_api_key
-VITE_authDomain=your_auth_domain
-VITE_projectId=your_project_id
-VITE_storageBucket=your_bucket
-VITE_messagingSenderId=your_sender_id
-VITE_appId=your_app_id
+
+- VITE_apiKey=your_api_key
+- VITE_authDomain=your_auth_domain
+- VITE_projectId=your_project_id
+- VITE_storageBucket=your_bucket
+- VITE_messagingSenderId=your_sender_id
+- VITE_appId=your_app_id
 
 - Server (.env)
 - Inside ums-server, create a .env file:
 
-PORT=3000
-DB_URL=your_mongodb_connection_uri
-FIREBASE_PROJECT_ID=your_firebase_project_id
-FIREBASE_CLIENT_EMAIL=your_firebase_admin_email
-FIREBASE_PRIVATE_KEY="your_firebase_private_key"
-JWT_SECRET=your_jwt_secret
+= PORT=3000
+- DB_URL=your_mongodb_connection_uri
+- FIREBASE_PROJECT_ID=your_firebase_project_id
+- FIREBASE_CLIENT_EMAIL=your_firebase_admin_email
+- FIREBASE_PRIVATE_KEY="your_firebase_private_key"
+- JWT_SECRET=your_jwt_secret
 
 #### ▶️ Start the Server
 - cd ums-server
