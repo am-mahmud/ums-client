@@ -85,10 +85,10 @@ You must run both client and server.
 - Clone Server: git clone https://github.com/am-mahmud/ums-server
 
 ##### 📦 2️⃣ Install Dependencies
-- Client
+##### Client
 - cd ums-client
 - npm install
-- Server
+##### Server
 - cd ums-server
 - npm install
 
