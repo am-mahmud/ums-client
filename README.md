@@ -80,11 +80,11 @@ Together, these two layers communicate securely through REST APIs, protected wit
 To run the Utility Management System (UMS) on your local machine, follow the steps below.
 You must run both client and server.
 
-####🔧 1️⃣ Clone the Repositories
+##### 🔧 Clone the Repositories
 - Clone Client: git clone https://github.com/am-mahmud/ums-client
 - Clone Server: git clone https://github.com/am-mahmud/ums-server
 
-##### 📦 2️⃣ Install Dependencies
+##### Install Dependencies
 ##### Client
 - cd ums-client
 - npm install
@@ -92,7 +92,7 @@ You must run both client and server.
 - cd ums-server
 - npm install
 
-#### 🔐 3️⃣ Set Up Environment Variables
+#### 🔐 Set Up Environment Variables
 - Client (.env)
 - Create a .env file inside ums-client and add your Firebase config:
 
